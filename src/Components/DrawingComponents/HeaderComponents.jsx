@@ -34,8 +34,8 @@ const SketchDropDown = () => {
     );
     return (
         <>
-            <div className="shadow">
-                <ul className="absolute right-0 top-0 bg-[#FCFFF7] w-[25rem] h-[30rem] font-bold pl-[20px] flex flex-col gap-[6px] shadow rounded-[10px]">
+            <div className="shadow sm:w-[20rem] md:w-[25rem]">
+                <ul className="absolute right-0 top-0 bg-[#FCFFF7] md:w-[25rem] sm:w-[20rem] h-[30rem] font-bold pl-[20px] flex flex-col gap-[6px] shadow rounded-[10px]">
                     <div className="flex flex-row gap-1 items-center mt-[20px] shadow-md mr-[1.5rem] pl-[10px] rounded-[40px]">
                         <IoSearch size={30}/>
                         <input type="search" placeholder="Search" value={searchQuery} onChange={handleSearch} className="bg-transparent outline-none h-[2.5rem] pl-[10px] w-[100%] pr-[10px] border-none"/>
@@ -57,22 +57,35 @@ const SketchDropDown = () => {
     )
 }
 
+const IconRotate = ({isRotated, toggleRotation}) => {
+    return(
+        <div onClick={toggleRotation}>
+            <SketchDropDown className={`transform transition-transform duration-300 ${isRotated ? 'rotate-180' : 'rotate-0'}`}/>
+        </div>
+    )
+}
+
 const DropDownMenu = () => {
     const [isVisible, setIsVisible] = useState(false)
+    const [isRotated, setIsRotated] = useState(false);
 
     const toggleVisibility = () => {
         setIsVisible(!isVisible);
     }
+
+    const toggleRotation = () => {
+        setIsRotated((prev) => !prev);
+      };
     return (
         <>
             <div className="shadow">
-                <ul className="absolute right-[20px] top-[70px] bg-[#FCFFF7] w-[10rem] h-[10rem] font-bold pl-[20px] flex flex-col gap-[6px] shadow rounded-[10px] pt-[3px]">
+                <ul className="absolute right-[20px] top-[70px] bg-[#FCFFF7] w-[10rem] h-[10rem] font-bold pl-[20px] flex flex-col gap-[6px] shadow rounded-[10px] pt-[3px] cursor-pointer">
                     <li>Daily Challenge</li>
                     <li onClick={toggleVisibility}>Sketch</li>
                     <li>Favourites</li>
                     <li>Saved Work</li>
                     <li>Print</li>
-                    {isVisible ? <SketchDropDown /> : null}
+                    {isVisible ? <IconRotate isRotated={isRotated} toggleRotation={toggleRotation}/> : null}
                 </ul>
             </div>
         </>
