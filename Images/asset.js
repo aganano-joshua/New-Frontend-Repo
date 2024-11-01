@@ -4,6 +4,9 @@ import colorpal from './colorpal.png'
 import text from './text.png'
 import eraser from './eraser.png'
 import dropmenu from './dropmenu.png'
+import bg from './background.svg'
+import logo from './logo.png'
+import music from './music.png'
 
 export const assets = {
     pen,
@@ -11,5 +14,8 @@ export const assets = {
     colorpal,
     text,
     eraser,
-    dropmenu
+    dropmenu,
+    bg,
+    logo,
+    music
 }
