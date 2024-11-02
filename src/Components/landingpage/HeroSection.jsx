@@ -1,7 +1,7 @@
 import React from 'react'
 import { assets } from '../../../Images/asset'
-import Header from '../../components/landingpage/Header'
-import Hero from '../../components/landingpage/Hero'
+import Header from '../../Components/landingpage/Header'
+import Hero from '../../Components/landingpage/Hero'
 
 
 
