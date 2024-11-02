@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Dashboard from './Pages/Drawing/Dashboard'
-import Landing from './Pages/landing/landing'
+import Landing from './Pages/landing/Landing'
 
 function App() {
 
