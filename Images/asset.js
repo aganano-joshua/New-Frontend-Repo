@@ -7,7 +7,8 @@ import dropmenu from './dropmenu.png'
 import bg from './background.svg'
 import logo from './logo.png'
 import music from './music.png'
-
+import group from './Group 1.png'
+import groups from './Group 2.png'
 export const assets = {
     pen,
     brush,
@@ -17,5 +18,7 @@ export const assets = {
     dropmenu,
     bg,
     logo,
-    music
+    music,
+    group,
+    groups
 }
