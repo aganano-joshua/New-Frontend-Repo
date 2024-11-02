@@ -1,5 +1,5 @@
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
-import { Button } from "@/components/ui/button"
+import { Button } from "../ui/button"
 import { assets } from "../../../Images/asset";
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
