@@ -99,7 +99,7 @@ export const HeaderComponents = () => {
         setIsVisible(!isVisible);
     }
     return (
-        <div className='flex flex-row justify-between items-center mt-[20px] mb-[10px] ml-[10px] mr-[10px]'>
+        <div className='flex flex-row justify-between items-center w-full pt-[20px] pb-[10px] pl-[10px] pr-[10px] absolute z-10 bg-white'>
             <MdOutlineArrowBackIosNew size={30} />
             <div className="flex flex-row gap-4 justify-center items-center">
                 <Button className='rounded-[20px] bg-[#096566]'>Undo</Button>
