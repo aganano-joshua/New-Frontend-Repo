@@ -13,7 +13,7 @@ const tools = [
   ]
 
 const SideBar = ({ selectTool, selectedTool}) => {
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
 
     const [isPopupVisible, setIsPopupVisible] = useState(false);
 
