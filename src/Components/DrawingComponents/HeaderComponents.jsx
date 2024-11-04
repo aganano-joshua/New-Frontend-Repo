@@ -92,14 +92,14 @@ const DropDownMenu = () => {
     )
 }
 
-export const HeaderComponents = () => {
+export const HeaderComponents = ({ saveDrawing, imageId, loading }) => {
     const [isVisible, setIsVisible] = useState(false)
 
     const toggleVisibility = () => {
         setIsVisible(!isVisible);
     }
     return (
-        <div className='flex flex-row justify-between items-center w-full pt-[20px] pb-[10px] pl-[10px] pr-[10px] absolute z-10 bg-white'>
+        <div className='flex flex-row justify-between items-center w-full pt-[20px] pb-[10px] pl-[10px] pr-[10px] h-[5rem] absolute z-10 bg-white'>
             <MdOutlineArrowBackIosNew size={30} />
             <div className="flex flex-row gap-4 justify-center items-center">
                 <Button className='rounded-[20px] bg-[#096566]'>Undo</Button>

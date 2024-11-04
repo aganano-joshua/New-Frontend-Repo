@@ -5,11 +5,11 @@ import { HeaderComponents } from '../../Components/DrawingComponents/HeaderCompo
 
 const Dashboard = () => {
     return (
-        <>
+        <div className='body'>
             <HeaderComponents/>
             <SideBar/>
             <CanvaComponents/>
-        </>
+        </div>
     )
 }
 

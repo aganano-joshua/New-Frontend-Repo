@@ -2,7 +2,7 @@ import React from 'react'
 
 const CanvaComponents = () => {
   return (
-    <div>CanvaComponents</div>
+    <div className='pt-[5rem] pl-[6rem]'>CanvaComponents</div>
   )
 }
 
