@@ -3,6 +3,7 @@ import { Button } from "../ui/button"
 import { assets } from "../../../Images/asset";
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
+import { Loader2 } from "lucide-react";
 
 const items = [
     { id: 1, name: 'Item One', category: 'Category A' },
@@ -57,7 +58,7 @@ const SketchDropDown = () => {
     )
 }
 
-const IconRotate = ({isRotated, toggleRotation}) => {
+const IconRotate = ({isRotated, toggleRotation, onUndo}) => {
     return(
         <div onClick={toggleRotation}>
             <SketchDropDown className={`transform transition-transform duration-300 ${isRotated ? 'rotate-180' : 'rotate-0'}`}/>
@@ -92,7 +93,7 @@ const DropDownMenu = () => {
     )
 }
 
-export const HeaderComponents = ({ saveDrawing, imageId, loading }) => {
+export const HeaderComponents = ({ saveDrawing, imageId, loading, onUndo }) => {
     const [isVisible, setIsVisible] = useState(false)
 
     const toggleVisibility = () => {
@@ -102,9 +103,13 @@ export const HeaderComponents = ({ saveDrawing, imageId, loading }) => {
         <div className='flex flex-row justify-between items-center w-full pt-[20px] pb-[10px] pl-[10px] pr-[10px] h-[5rem] absolute z-10 bg-white'>
             <MdOutlineArrowBackIosNew size={30} />
             <div className="flex flex-row gap-4 justify-center items-center">
-                <Button className='rounded-[20px] bg-[#096566]'>Undo</Button>
+                <Button className='rounded-[20px] bg-[#096566]' onClick={onUndo}>Undo</Button>
                 <Button className='rounded-[20px] bg-[#096566]'>Share</Button>
-                <Button className='rounded-[20px] bg-[#096566]'>Save</Button>
+                <Button className='rounded-[20px] bg-[#096566]'  onClick={saveDrawing} disabled={loading}>{loading ? (
+    <>
+      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+    </>
+  ) : imageId ? 'Update' : 'Save'}</Button>
                 <img src={assets.dropmenu} alt="menu" width={30} onClick={toggleVisibility} />
                 {isVisible ? <DropDownMenu /> : null}
             </div>
