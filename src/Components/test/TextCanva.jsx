@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useRef, useEffect, useState, forwardRef, useImperativeHandle, useCallback } from 'react';
-import { Input } from "@/components/ui/input"
+import { Input } from "../ui/input"
 // import axios from 'axios';
 // import jwtDecode from 'jwt-decode'; // Correct import syntax for jwt-decode
 // Import the rest of your imports
