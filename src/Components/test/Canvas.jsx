@@ -1,72 +1,50 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 // src/components/DrawingBoard.js
-import {
-  useRef,
-  useEffect,
-  useState,
-  forwardRef,
-  useImperativeHandle,
-  useCallback,
-} from 'react';
-// import './DrawingBoard.css';
+
+import { useRef, useEffect, useState, forwardRef, useImperativeHandle, useCallback } from 'react';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
-// import { Button } from '@chakra-ui/react';
-import { Button } from '@/components/ui/button'
-import { Loader2 } from 'lucide-react';
-import DrawingControls from './DrawingControl';
-// import axios from 'axios';
-// import DrawingControl from './DrawingControl'
+// import the rest of your imports
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
 
-const DrawingBoard = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref) => {
+const Canvas = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref) => {
   const canvasRef = useRef(null);
   const colorPaletteRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  const lastDrawTimeRef = useRef(0);
-  const [showPopup, setShowPopup] = useState(false);
+  const historyRef = useRef([]); // History for each stroke
   const [format, setFormat] = useState('image/png');
   const [imageId, setImageId] = useState(null); // Track image ID for updates
   const [loading, setLoading] = useState(false);
-  const [textInput, setTextInput] = useState(''); // Text input state
-  const [textPosition, setTextPosition] = useState(null); // Track text position
-  const [isTyping, setIsTyping] = useState(false); // Manage typing state
 
-  // State for brush size and color
+  // Other state variables and refs...
   const [selectedColor, setSelectedColor] = useState('#000000');
   const [brushSize, setBrushSize] = useState(5);
 
+  // Expose the undo function
   useImperativeHandle(ref, () => ({
-    printCanvas: () => {
-      const canvas = canvasRef.current;
-      const dataUrl = canvas.toDataURL();
-      const windowContent = `
-        <html>
-        <head><title>Print canvas</title></head>
-        <body><img src="${dataUrl}" onload="window.print();window.close()"></body>
-        </html>`;
-      const printWin = window.open('', '', 'width=800,height=600');
-      printWin.document.open();
-      printWin.document.write(windowContent);
-      printWin.document.close();
+    undoLastStroke: () => {
+      if (historyRef.current.length > 0) {
+        historyRef.current.pop(); // Remove last stroke from history
+        redrawCanvas(); // Redraw canvas from history
+      }
     },
-    clearCanvas: () => {
-      const canvas = canvasRef.current;
-      const context = canvas.getContext('2d');
-      context.clearRect(0, 0, canvas.width, canvas.height);
-    },
-    shareCanvas: () => {
-      const canvas = canvasRef.current;
-      const dataUrl = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.href = dataUrl;
-      link.download = 'drawing.png';
-      link.click();
-    },
+    // Other functions like clearCanvas, printCanvas, shareCanvas
   }));
+
+  // Function to redraw the canvas based on the history
+  const redrawCanvas = () => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+    historyRef.current.forEach(stroke => {
+      context.beginPath();
+      stroke.forEach(point => {
+        context.lineTo(point.x, point.y);
+      });
+      context.stroke();
+    });
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -75,40 +53,42 @@ const DrawingBoard = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref)
     context.lineWidth = brushSize;
     context.strokeStyle = selectedColor;
 
+    let currentStroke = []; // Temporary array for current stroke
+    console.log(currentStroke)
+
     const startDrawing = (event) => {
-      event.preventDefault();
       setIsDrawing(true);
-      setShowPopup(true);
       const { x, y } = getPos(canvas, event);
+      currentStroke = [{ x, y }]; // Start new stroke
       context.beginPath();
       context.moveTo(x, y);
     };
 
     const draw = (event) => {
       if (!isDrawing) return;
-      const currentTime = new Date().getTime();
-      if (currentTime - lastDrawTimeRef.current > 16) {
-        const { x, y } = getPos(canvas, event);
-        context.lineTo(x, y);
-        context.stroke();
-        lastDrawTimeRef.current = currentTime;
-      }
-    };
-
-    const stopDrawing = () => {
-      setIsDrawing(false);
-      context.closePath();
+      const { x, y } = getPos(canvas, event);
+      context.lineTo(x, y);
+      context.stroke();
+      currentStroke.push({ x, y }); // Add point to current stroke
     };
 
     const getPos = (canvas, event) => {
-      const rect = canvas.getBoundingClientRect();
-      const touch = event.touches ? event.touches[0] : event;
-      return {
-        x: (touch.clientX - rect.left) * (canvas.width / rect.width),
-        y: (touch.clientY - rect.top) * (canvas.height / rect.height),
+        const rect = canvas.getBoundingClientRect();
+        const touch = event.touches ? event.touches[0] : event;
+        return {
+          x: (touch.clientX - rect.left) * (canvas.width / rect.width),
+          y: (touch.clientY - rect.top) * (canvas.height / rect.height),
+        };
       };
+
+    const stopDrawing = () => {
+      setIsDrawing(false);
+      historyRef.current.push([...currentStroke]); // Save stroke to history
+      currentStroke = []; // Reset current stroke
+      context.closePath();
     };
 
+    // Event listeners for drawing
     canvas.addEventListener('mousedown', startDrawing);
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', stopDrawing);
@@ -128,49 +108,8 @@ const DrawingBoard = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref)
     };
   }, [isDrawing]);
 
-  useEffect(() => {
-    if (textPosition && !isTyping && selectedTool === 'text') {
-      drawTextOnCanvas();
-    }
-  }, [textPosition, isTyping, textInput, selectedTool]);
 
-  const drawTextOnCanvas = () => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext('2d');
-    
-    // Clear any existing drawing where the text was placed before drawing new text
-    context.clearRect(0, 0, canvas.width, canvas.height);
-
-    context.font = '20px Arial'; // Set font size and style
-    context.fillStyle = selectedColor; // Set the text color
-    context.fillText(textInput, textPosition.x, textPosition.y); // Draw the text at the position
-  };
-
-  const handleCanvasClick = (event) => {
-    if (selectedTool === 'text') {
-      const canvas = canvasRef.current;
-      const rect = canvas.getBoundingClientRect();
-      const x = (event.clientX - rect.left) * (canvas.width / rect.width);
-      const y = (event.clientY - rect.top) * (canvas.height / rect.height);
-
-      // Place the text input at the clicked position
-      setTextPosition({ x, y });
-      setIsTyping(true); // Enable text input mode
-    }
-  };
-
-  const handleTextInputChange = (event) => {
-    setTextInput(event.target.value);
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      setIsTyping(false); // Exit typing mode after pressing 'Enter'
-      drawTextOnCanvas(); // Draw the text after editing is complete
-    }
-  };
-
-
+//   To Make All Tool Functional From the Sidebar
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -215,6 +154,7 @@ const DrawingBoard = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref)
     }
   }, [selectedTool]);
 
+  // To Save And Update Image In Database
   const saveDrawing = useCallback(() => {
     setLoading(true);
     const canvas = canvasRef.current;
@@ -256,19 +196,6 @@ const DrawingBoard = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref)
         setLoading(false);
       });
   }, [imageId, format]); // Add relevant dependencies here
-  
-
-  const cancelPopup = () => {
-    setShowPopup(false);
-  };
-
-  const handleColorChange = (newColor) => {
-    setSelectedColor(newColor);
-  };
-
-  const handleBrushSizeChange = (newSize) => {
-    setBrushSize(newSize);
-  };
 
   useEffect(() => {
     if (onSaveClick) {
@@ -278,19 +205,12 @@ const DrawingBoard = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref)
 
   return (
     <>
-
-      {selectedTool === 'color' && (
-        <DrawingControls
-          ref={colorPaletteRef}
-          onColorChange={handleColorChange}
-          onBrushSizeChange={handleBrushSizeChange}
-        />
-      )}
+      {/* Other JSX code */}
       <div className="canvas-container flex h-full w-full justify-center items-center" style={{ borderRadius: "1px solid blac" }}>
-        <canvas onClick={handleCanvasClick} ref={canvasRef} className='w-full h-[95vh]' width={1650} height={750} id="drawingCanvas" />
+        <canvas ref={canvasRef} className='w-full h-[95vh]' width={1650} height={750} id="drawingCanvas" />
       </div>
     </>
   );
-})
+});
 
-export default DrawingBoard;
+export default Canvas;
