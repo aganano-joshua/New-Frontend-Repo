@@ -249,10 +249,10 @@ export default function Dashboard() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-6">
             <h2 className="text-3xl font-bold mb-2">Card<span className="text-sky-400">Board</span></h2>
-            <div className="flex justify-center gap-4 my-4">
+            {/* <div className="flex justify-center gap-4 my-4">
               <img src="/placeholder.svg" alt="App Store" className="h-10 object-contain" />
               <img src="/placeholder.svg" alt="Google Play" className="h-10 object-contain" />
-            </div>
+            </div> */}
           </div>
           <div className="flex justify-center gap-8 text-sm">
             <NavLink href="#">Draw</NavLink>

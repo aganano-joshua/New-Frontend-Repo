@@ -1,7 +1,7 @@
 import React from 'react'
 import { assets } from '../../../Images/asset'
 
-const Header = () => {
+const Header = ({}) => {
     return (
       <div className='flex flex-row gap justify-between items-center h-50px px-14' >
         <div>

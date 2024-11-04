@@ -9,6 +9,17 @@ import logo from './logo.png'
 import music from './music.png'
 import group from './Group 1.png'
 import groups from './Group 2.png'
+import set from './settings.png'
+import pal from './pallette.png'
+import ptool from './Pen tool.png'
+import kids from './Kids.png'
+import faq from './FAQ.png'
+import book from './Icon.png'
+import user from './User.png'
+import brushh from './brushh.png'
+import doll from './doll.png'
+import share from './share.png'
+
 export const assets = {
     pen,
     brush,
@@ -20,5 +31,16 @@ export const assets = {
     logo,
     music,
     group,
-    groups
+    groups,
+    set,
+    pal,
+    ptool,
+    kids,
+    faq,
+    book,
+    user,
+    brush,
+    brushh,
+    doll,
+    share
 }
