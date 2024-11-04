@@ -11,7 +11,11 @@ const Hero = () => {
         <p className="mt-4 ">
             Get ready to bring your wildest ideas to life! Grab your crayons, markers, or pencils and let your creativity soar. Every drawing tells a story—what will yours be?
         </p>
-        <button className='bg-co'>Create Art</button>
+        <div className="btn border-black">
+        <button style={{backgroundColor: '#008183', padding: '10px 12px', borderRadius: '15px', color: '#fff', fontWeight: 'bold'}}>Create Art</button>
+
+        </div>
+
     </div>
     <div className="hero-img flex space-x-0 relative">
       <img src={assets.group} alt=""  className='h-96 w-96 m-0 p-0 absolute' style={{zIndex: '-1'}}/>

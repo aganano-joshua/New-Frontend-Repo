@@ -1,5 +1,5 @@
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
-import { Button } from "@/components/ui/button"
+import { Button } from "../ui/button"
 import { assets } from "../../../Images/asset";
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
@@ -34,8 +34,8 @@ const SketchDropDown = () => {
     );
     return (
         <>
-            <div className="shadow">
-                <ul className="absolute right-0 top-0 bg-[#FCFFF7] w-[25rem] h-[30rem] font-bold pl-[20px] flex flex-col gap-[6px] shadow rounded-[10px]">
+            <div className="shadow w-[25rem] sm:w-[25rem] md:w-[25rem]">
+                <ul className="absolute right-0 top-0 bg-[#FCFFF7] w-[18rem] md:w-[25rem] sm:w-[20rem] h-[30rem] font-bold pl-[20px] flex flex-col gap-[6px] shadow rounded-[10px]">
                     <div className="flex flex-row gap-1 items-center mt-[20px] shadow-md mr-[1.5rem] pl-[10px] rounded-[40px]">
                         <IoSearch size={30}/>
                         <input type="search" placeholder="Search" value={searchQuery} onChange={handleSearch} className="bg-transparent outline-none h-[2.5rem] pl-[10px] w-[100%] pr-[10px] border-none"/>
@@ -57,36 +57,49 @@ const SketchDropDown = () => {
     )
 }
 
+const IconRotate = ({isRotated, toggleRotation}) => {
+    return(
+        <div onClick={toggleRotation}>
+            <SketchDropDown className={`transform transition-transform duration-300 ${isRotated ? 'rotate-180' : 'rotate-0'}`}/>
+        </div>
+    )
+}
+
 const DropDownMenu = () => {
     const [isVisible, setIsVisible] = useState(false)
+    const [isRotated, setIsRotated] = useState(false);
 
     const toggleVisibility = () => {
         setIsVisible(!isVisible);
     }
+
+    const toggleRotation = () => {
+        setIsRotated((prev) => !prev);
+      };
     return (
         <>
-            <div className="shadow">
-                <ul className="absolute right-[20px] top-[70px] bg-[#FCFFF7] w-[10rem] h-[10rem] font-bold pl-[20px] flex flex-col gap-[6px] shadow rounded-[10px] pt-[3px]">
+            <div className="shadow" style={{backgroundImage: `url(${assets.brush})`, width: "100%"}}>
+                <ul className="absolute right-[20px] top-[70px] bg-[#FCFFF7] w-[10rem] h-[10rem] font-bold pl-[20px] flex flex-col gap-[6px] shadow rounded-[10px] pt-[3px] cursor-pointer">
                     <li>Daily Challenge</li>
                     <li onClick={toggleVisibility}>Sketch</li>
                     <li>Favourites</li>
                     <li>Saved Work</li>
                     <li>Print</li>
-                    {isVisible ? <SketchDropDown /> : null}
+                    {isVisible ? <IconRotate isRotated={isRotated} toggleRotation={toggleRotation}/> : null}
                 </ul>
             </div>
         </>
     )
 }
 
-export const HeaderComponents = () => {
+export const HeaderComponents = ({ saveDrawing, imageId, loading }) => {
     const [isVisible, setIsVisible] = useState(false)
 
     const toggleVisibility = () => {
         setIsVisible(!isVisible);
     }
     return (
-        <div className='flex flex-row justify-between items-center mt-[20px] mb-[10px] ml-[10px] mr-[10px]'>
+        <div className='flex flex-row justify-between items-center w-full pt-[20px] pb-[10px] pl-[10px] pr-[10px] h-[5rem] absolute z-10 bg-white'>
             <MdOutlineArrowBackIosNew size={30} />
             <div className="flex flex-row gap-4 justify-center items-center">
                 <Button className='rounded-[20px] bg-[#096566]'>Undo</Button>
