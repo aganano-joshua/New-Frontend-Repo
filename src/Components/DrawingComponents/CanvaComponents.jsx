@@ -14,7 +14,7 @@ import {
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 // import { Button } from '@chakra-ui/react';
-import { Button } from '@/components/ui/button'
+import { Button } from '../../components/ui/button'
 import { Loader2 } from 'lucide-react';
 import DrawingControls from './DrawingControl';
 // import axios from 'axios';
