@@ -300,7 +300,7 @@ const Canvas = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref) => {
                 )}
 
                 {/* Canvas element */}
-                <div className="canvas-container flex h-full w-full justify-center items-center">
+                <div className="canvas-container flex h-[90vh] w-full justify-center items-center">
                     <canvas ref={canvasRef} className='w-full h-full' width={1650} height={750} id="drawingCanvas" />
                 </div>
             </div>
