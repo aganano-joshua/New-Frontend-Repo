@@ -1,21 +1,15 @@
 import React from "react";
-import logo from "../../assets/Group 53.png";
-import logo1 from "../../assets/Group 55.png";
 import paper from "../../assets/image 42.png";
 import union from "../../assets/Union.png";
 import arror from "../../assets/vec.png";
-import arror1 from "../../assets/w.png";
 import set from "../../assets/SETTINGS.png";
-import frame from "../../assets/Frame.png";
-import frame1 from "../../assets/Frame1.png";
-import frame2 from "../../assets/Frame2.png";
-import frame3 from "../../assets/Frame3.png";
-import Card from "./Card/Carder";
+import Card from "./Card/Hint_Data";
 import "./first.css";
+import { CardStackMinusIcon } from "@radix-ui/react-icons";
 
 const Audio = () => {
   return (
-    <main className="grid place-content-center w-screen h-screen bg-gray-50">
+    <main className="body grid place-content-center w-screen h-screen bg-gray-50">
       {/* Settings Container */}
       <div className="relative flex px-24 py-20 flex-col items-center w-[80vw] max-w-[90vh] bg-white border-4 border-[#008183] rounded-lg shadow-lg p-4">
         {/* Back Arrow */}
@@ -30,7 +24,7 @@ const Audio = () => {
             <img src={set} alt="Settings Text" className="absolute" />
           </div>
           <h1 className="text-teal-500 my-5 text-xl font-bold">Hints</h1>
-          <Card/>     
+          <Card />
 
           {/* Help Icon at the Bottom */}
           <div className="mt-8">

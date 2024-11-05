@@ -14,7 +14,7 @@ import "./first.css";
 
 const Setting = () => {
   return (
-    <main className="grid place-content-center w-screen h-screen bg-gray-50">
+    <main className="body grid place-content-center w-screen h-screen bg-gray-50">
       {/* Settings Container */}
       <div className="relative flex px-24 py-20 flex-col items-center w-[80vw] max-w-[90vh] bg-white border-4 border-[#008183] rounded-lg shadow-lg p-4">
         {/* Back Arrow */}

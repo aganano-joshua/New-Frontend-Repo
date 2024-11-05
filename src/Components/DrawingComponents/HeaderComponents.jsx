@@ -1,8 +1,9 @@
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
-import { Button } from "@/components/ui/button"
+import { Button } from "../ui/button"
 import { assets } from "../../../Images/asset";
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
+import { Loader2 } from "lucide-react";
 
 const items = [
     { id: 1, name: 'Item One', category: 'Category A' },
@@ -34,8 +35,8 @@ const SketchDropDown = () => {
     );
     return (
         <>
-            <div className="shadow sm:w-[20rem] md:w-[25rem]">
-                <ul className="absolute right-0 top-0 bg-[#FCFFF7] md:w-[25rem] sm:w-[20rem] h-[30rem] font-bold pl-[20px] flex flex-col gap-[6px] shadow rounded-[10px]">
+            <div className="shadow w-[25rem] sm:w-[25rem] md:w-[25rem]">
+                <ul className="absolute right-0 top-0 bg-[#FCFFF7] w-[18rem] md:w-[25rem] sm:w-[20rem] h-[30rem] font-bold pl-[20px] flex flex-col gap-[6px] shadow rounded-[10px]">
                     <div className="flex flex-row gap-1 items-center mt-[20px] shadow-md mr-[1.5rem] pl-[10px] rounded-[40px]">
                         <IoSearch size={30}/>
                         <input type="search" placeholder="Search" value={searchQuery} onChange={handleSearch} className="bg-transparent outline-none h-[2.5rem] pl-[10px] w-[100%] pr-[10px] border-none"/>
@@ -57,7 +58,7 @@ const SketchDropDown = () => {
     )
 }
 
-const IconRotate = ({isRotated, toggleRotation}) => {
+const IconRotate = ({isRotated, toggleRotation, onUndo}) => {
     return(
         <div onClick={toggleRotation}>
             <SketchDropDown className={`transform transition-transform duration-300 ${isRotated ? 'rotate-180' : 'rotate-0'}`}/>
@@ -78,7 +79,7 @@ const DropDownMenu = () => {
       };
     return (
         <>
-            <div className="shadow">
+            <div className="shadow" style={{backgroundImage: `url(${assets.brush})`, width: "100%"}}>
                 <ul className="absolute right-[20px] top-[70px] bg-[#FCFFF7] w-[10rem] h-[10rem] font-bold pl-[20px] flex flex-col gap-[6px] shadow rounded-[10px] pt-[3px] cursor-pointer">
                     <li>Daily Challenge</li>
                     <li onClick={toggleVisibility}>Sketch</li>
@@ -92,19 +93,23 @@ const DropDownMenu = () => {
     )
 }
 
-export const HeaderComponents = () => {
+export const HeaderComponents = ({ saveDrawing, imageId, loading, onUndo }) => {
     const [isVisible, setIsVisible] = useState(false)
 
     const toggleVisibility = () => {
         setIsVisible(!isVisible);
     }
     return (
-        <div className='flex flex-row justify-between items-center mt-[20px] mb-[10px] ml-[10px] mr-[10px]'>
+        <div className='flex flex-row justify-between items-center w-full pt-[20px] pb-[10px] pl-[10px] pr-[10px] h-[5rem] absolute z-10 bg-white'>
             <MdOutlineArrowBackIosNew size={30} />
             <div className="flex flex-row gap-4 justify-center items-center">
-                <Button className='rounded-[20px] bg-[#096566]'>Undo</Button>
+                <Button className='rounded-[20px] bg-[#096566]' onClick={onUndo}>Undo</Button>
                 <Button className='rounded-[20px] bg-[#096566]'>Share</Button>
-                <Button className='rounded-[20px] bg-[#096566]'>Save</Button>
+                <Button className='rounded-[20px] bg-[#096566]'  onClick={saveDrawing} disabled={loading}>{loading ? (
+    <>
+      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+    </>
+  ) : imageId ? 'Update' : 'Save'}</Button>
                 <img src={assets.dropmenu} alt="menu" width={30} onClick={toggleVisibility} />
                 {isVisible ? <DropDownMenu /> : null}
             </div>
