@@ -30,7 +30,6 @@ const Dashboard = () => {
     setImageId(imgId);
     setLoading(isLoading);
   };
-  const navigate = useNavigate();
 
 //   const { token } = useAuth();
 
@@ -83,14 +82,14 @@ const handleUndo = () => {
     }
 }
     return (
-        <>
+        <div className='overflow-x-hidden overflow-y-hidden overflow-hidden'>
             <HeaderComponents saveDrawing={saveDrawingFn} imageId={imageId} loading={loading} onUndo={handleUndoClick}/>
             <SideBar selectTool={setSelectedTool}
         selectedTool={selectedTool}
         handleBrushSizeChange={handleBrushSizeChange}
         handleColorChange={handleColorChange}/>
             <TextCanva selectTool={setSelectedTool} onDraw={handleDraw} onSaveClick={handleSaveClick} ref={drawingBoardRef} selectedTool={selectedTool}/>
-        </>
+        </div>
     )
 }
 
