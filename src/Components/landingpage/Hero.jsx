@@ -3,24 +3,49 @@ import { assets } from '../../../Images/asset'
 
 const Hero = () => {
   return (
-    <div className='flex flex-row justify-between items-center'>
-    <div className="herotext mt-10 w-96 ml-52">
-        <h2 className="text-2xl font-bold">
-            Unleash your <span style={{color: '#008183'}}>Imagination: Create</span> your own adventure
-        </h2>
-        <p className="mt-4 ">
-            Get ready to bring your wildest ideas to life! Grab your crayons, markers, or pencils and let your creativity soar. Every drawing tells a story—what will yours be?
-        </p>
-        <div className="btn border-black">
-        <button style={{backgroundColor: '#008183', padding: '10px 12px', borderRadius: '15px', color: '#fff', fontWeight: 'bold'}}>Create Art</button>
-
-        </div>
-
+    <div>
+      <div className="flex flex-col md:flex-row justify-between items-center mt-11 max-w-[800px] mx-auto px-4">
+  <div className="herotext mt-10 md:mt-0 w-full  md:ml-10">
+    <h2 className="text-3xl md:text-5xl font-bold">
+      Unleash your <span style={{ color: '#008183' }}>Imagination: Create</span> your own adventure
+    </h2>
+    <p className="mt-4 text-base md:text-lg">
+      Get ready to bring your wildest ideas to life! Grab your crayons, markers, or pencils and let your creativity soar. Every drawing tells a story—what will yours be?
+    </p>
+    <div className="btn w-full mt-3 flex items-center justify-center">
+      <button
+        style={{
+          backgroundColor: '#008183',
+          padding: '10px 12px',
+          borderRadius: '20px',
+          color: '#fff',
+          fontWeight: 'bold'
+        }}
+      >
+        Create Art
+      </button>
     </div>
-    <div className="hero-img flex space-x-0 relative">
-      <img src={assets.group} alt=""  className='h-96 w-96 m-0 p-0 absolute' style={{zIndex: '-1'}}/>
-      <img src={assets.groups} alt="" className='h-96 w-96 m-0 p-0'/>
-    </div>
+  </div>
+  <div className="hero-img flex space-x-0 relative mt-8 md:mt-0">
+    <img
+      src={assets.group}
+      alt=""
+      className="h-64 w-64 md:h-96 md:w-96 m-0 p-0 hidden md:block"
+      style={{ zIndex: '-1' }}
+    />
+    <img
+      src={assets.groups}
+      alt=""
+      className="h-64 w-64 md:h-96 md:w-96 m-0 p-0 hidden md:block"
+    />
+  </div>
+</div>
+  <div className='box flex flex-col gap-4 p-4 justify-center items-center text-2xl' style={{backgroundColor: '#008183', fontWeight: 'bold', color: '#fff'}}>
+    <h4>40,000+ Users are Satisfied with Cardboard</h4>
+    
+    <button style={{backgroundColor: '#15DEE1', color: '#fff', padding: '10px 12px', borderRadius: '20px'}}> Join Now </button>
+    
+  </div>
 </div>
 
   )

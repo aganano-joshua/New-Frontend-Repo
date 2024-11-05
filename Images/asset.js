@@ -19,8 +19,26 @@ import user from './User.png'
 import brushh from './brushh.png'
 import doll from './doll.png'
 import share from './share.png'
+import cloud from './cloud.png'
+import x from './X.png'
+import fb from './facebook.png'
+import ig from './instagram.png'
+import ldi from './linkedin.png'
+import paint from './paint.png'
+import draw from './draw.png'
+import sketch from './sketch.png'
+import ellipse from './ellipse.png'
+import ellipse1 from './ellipse1.png'
+import ellipse2 from './ellipse2.png'
+
 
 export const assets = {
+    paint,
+    draw,
+    sketch,
+    ellipse,
+    ellipse1,
+    ellipse2,
     pen,
     brush,
     colorpal,
@@ -42,5 +60,10 @@ export const assets = {
     brush,
     brushh,
     doll,
-    share
+    share,
+    cloud,
+    ldi,
+    fb,
+    x,
+    ig
 }

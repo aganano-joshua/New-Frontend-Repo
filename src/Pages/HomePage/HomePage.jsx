@@ -1,12 +1,12 @@
 import React from 'react'
-import HomeHead from '../../components/HomePage/HomeHead'
-import HeroSection from '../../components/HomePage/HeroSection'
-import HeroIcon from '../../components/HomePage/HeroIcon'
+import HomeHead from '../../Components/HomePage/HomeHead'
+import HeroSection from '../../Components/HomePage/HeroSection'
+import HeroIcon from '../../Components/HomePage/HeroIcon'
 import { assets } from '../../../Images/asset'
 
 const HomePage = () => {
   return (
-    <div className='max-800:bg-contain bg-no-repeat bg-center w-full' style={{backgroundImage: "url( Images/background.svg)", backgroundSize: 'cover', backgroundPosition: 'center', height: '100vh'}}>
+    <div className='body'>
         <HomeHead />
         <HeroSection />
         <HeroIcon />
