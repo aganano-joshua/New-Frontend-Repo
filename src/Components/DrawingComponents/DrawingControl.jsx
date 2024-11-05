@@ -1,17 +1,56 @@
+// /* eslint-disable react/prop-types */
+// import { useState } from 'react';
+// import { ColorPicker, useColor } from "react-color-palette";
+// import "react-color-palette/css";
+
+// const DrawingControls = ({ onColorChange, onBrushSizeChange }) => {
+//   const [color, setColor] = useColor('#000000');
+//   const [brushSize, setBrushSize] = useState(5);
+
+//   // Handle color change
+//   const handleColorChange = (value) => {
+//     setColor(value.hex);
+//     onColorChange(value.hex);
+//   };
+
+//   // Handle brush size change
+//   const handleBrushSizeChange = (value) => {
+//     setBrushSize(value);
+//     onBrushSizeChange(value);
+//   };
+
+//   return (
+//     <div>
+//           <h4 className='font-bold'>Brush Color:</h4>
+//           {/* <ColorPicker value={color} className='w-[10px]' onChange={handleColorChange} /> */}
+//           <h4 className='font-bold'>Brush Size:</h4>
+//           {/* <Slider
+//             min={1}
+//             max={30}
+//             value={brushSize}
+//             onChange={handleBrushSizeChange}
+//           /> */}
+//           <ColorPicker color={color} onChange={handleColorChange} />;
+//     </div>
+//   );
+// };
+
+// export default DrawingControls;
+
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-// import { Button, Slider, Row, Col } from 'antd';
-// import { ColorPicker } from 'antd';
-// import 'antd/dist/reset.css';
+import { ColorPicker, useColor } from "react-color-palette";
+import "react-color-palette/css";
 
 const DrawingControls = ({ onColorChange, onBrushSizeChange }) => {
-  const [color, setColor] = useState('#000000');
+  // Initialize color with `useColor`
+  const [color, setColor] = useColor("hex", "#000000");
   const [brushSize, setBrushSize] = useState(5);
 
   // Handle color change
   const handleColorChange = (value) => {
-    setColor(value.toHexString());
-    onColorChange(value.toHexString());
+    setColor(value); // Set the full color object, not just the hex value
+    onColorChange(value.hex); // Pass only the hex value to the parent
   };
 
   // Handle brush size change
@@ -21,16 +60,22 @@ const DrawingControls = ({ onColorChange, onBrushSizeChange }) => {
   };
 
   return (
-    <div className='z-[50] flex pl-[25px] pt-[20px] left-0 flex-col absolute h-[80%] left-[8rem] top-[3rem] w-[20rem] bg-[white]' style={{borderRight: "1px solid rgba(0, 0, 0, 0.165)"}}>
-          <h4 className='font-bold'>Brush Color:</h4>
-          {/* <ColorPicker value={color} className='w-[10px]' onChange={handleColorChange} /> */}
-          <h4 className='font-bold'>Brush Size:</h4>
-          {/* <Slider
-            min={1}
-            max={30}
-            value={brushSize}
-            onChange={handleBrushSizeChange}
-          /> */}
+    <div className='absolute right-0 h-full flex items-center'>
+      {/* <h4 className="font-bold">Brush Color:</h4> */}
+      <div className='w-[20rem]'>
+      <ColorPicker color={color} onChange={handleColorChange} />
+      </div>
+      
+      {/* <h4 className="font-bold">Brush Size:</h4> */}
+      {/* Add your slider here */}
+      {/* Example of a simple range input for brush size */}
+      {/* <input
+        type="range"
+        min="1"
+        max="30"
+        value={brushSize}
+        onChange={(e) => handleBrushSizeChange(parseInt(e.target.value))}
+      /> */}
     </div>
   );
 };
