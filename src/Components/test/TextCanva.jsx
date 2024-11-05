@@ -10,7 +10,7 @@ import DrawingControls from '../DrawingComponents/DrawingControl';
 const API_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
 
 // eslint-disable-next-line react/display-name
-const Canvas = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref) => {
+const Canvas = forwardRef(({ text, penSize=2, selectedTool, fontSize= 20, canvasWidth=1650, canvasHeight=750, fontFamily='Arial', selectTool, onSaveClick }, ref) => {
     const canvasRef = useRef(null);
     const colorPaletteRef = useRef(null);
     const [isDrawing, setIsDrawing] = useState(false);
@@ -42,8 +42,10 @@ const Canvas = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref) => {
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         context.font = '20px Arial';
+        context.clearRect(0, 0, canvas.width, canvas.height);
         context.fillStyle = selectedColor;
         context.fillText(textInput, textPosition.x, textPosition.y);
+        const lineHeight = fontSize * 1.2;
         setIsTextInputVisible(false);
         setTextPosition(null);
     };
@@ -83,13 +85,23 @@ const Canvas = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref) => {
 
     // Initialize canvas event listeners
     useEffect(() => {
+        const selectSize = ()=>{
+            if(selectedTool === 'pen'){
+                context.lineWidth = penSize
+            }else if(selectedTool === 'brush'){
+                context.lineWidth = brushSize
+            } else{
+                context.lineWidth = brushSize
+            }
+        }
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         context.lineCap = 'round';
-        context.lineWidth = brushSize;
+        context.lineWidth = selectSize();
         context.strokeStyle = selectedColor;
         let currentStroke = []; // Temporary array for current stroke
         // console.log(currentStroke)
+
 
         const startDrawing = (event) => {
             setIsDrawing(true);
@@ -101,10 +113,11 @@ const Canvas = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref) => {
             if (selectedTool === "pen") {
                 // Pencil Tool
                 context.strokeStyle = selectedColor;
-                context.lineWidth = 2;
+                context.lineWidth = penSize;
                 context.lineCap = "round"; // Makes it smoother
                 context.lineTo(event.nativeEvent.offsetX, event.nativeEvent.offsetY);
                 context.stroke();
+                setIsTextInputVisible(false)
               } else if (selectedTool === "brush") {
                 // Brush Tool
                 context.strokeStyle = selectedColor;
@@ -114,6 +127,9 @@ const Canvas = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref) => {
                 context.globalAlpha = 0.6; // Add transparency for a softer effect
                 context.lineTo(event.nativeEvent.offsetX, event.nativeEvent.offsetY);
                 context.stroke();
+                setIsTextInputVisible(false)
+              }else if (selectedTool === "text"){
+                setIsTextInputVisible(true)
               }
         };
 
@@ -189,6 +205,68 @@ const Canvas = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref) => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [selectTool]);
+
+    // useEffect(() => {
+    //     const canvas = canvasRef.current;
+    //     const ctx = canvas.getContext('2d');
+    
+    //     // Set font properties
+    //     ctx.font = `${fontSize}px ${fontFamily}`;
+    //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    //     const lineHeight = fontSize * 1.2; // Adjust line height as needed
+    //     let words = text.split(' ');
+    //     let line = '';
+    //     let y = lineHeight; // Starting y position
+    
+    //     words.forEach((word) => {
+    //       let testLine = line + word + ' ';
+    //       let { width: testWidth } = ctx.measureText(testLine);
+    
+    //       if (testWidth > canvasWidth) {
+    //         // Draw current line if it exceeds canvas width
+    //         ctx.fillText(line, 0, y);
+    //         line = word + ' '; // Start a new line with the current word
+    //         y += lineHeight; // Move y position down for the next line
+    //       } else {
+    //         line = testLine;
+    //       }
+    //     });
+    
+    //     // Draw any remaining text
+    //     ctx.fillText(line, 0, y);
+    //   }, [text, fontSize, fontFamily, canvasWidth]);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+    
+        // Set font properties
+        ctx.font = `${fontSize}px ${fontFamily}`;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+        const lineHeight = fontSize * 1.2; // Adjust line height as needed
+        let words = (text || '').split(' '); // Ensure text is a string before splitting
+        let line = '';
+        let y = lineHeight; // Starting y position
+    
+        words.forEach((word) => {
+          let testLine = line + word + ' ';
+          let { width: testWidth } = ctx.measureText(testLine);
+    
+          if (testWidth > canvasWidth) {
+            // Draw current line if it exceeds canvas width
+            ctx.fillText(line, 0, y);
+            line = word + ' '; // Start a new line with the current word
+            y += lineHeight; // Move y position down for the next line
+          } else {
+            line = testLine;
+          }
+        });
+    
+        // Draw any remaining text
+        ctx.fillText(line, 0, y);
+      }, [text, fontSize, fontFamily, canvasWidth]);
 
     useEffect(() => {
         const context = canvasRef.current.getContext('2d');
@@ -291,8 +369,8 @@ const Canvas = forwardRef(({ selectedTool, selectTool, onSaveClick }, ref) => {
                         onKeyDown={(e) => e.key === 'Enter' && placeTextOnCanvas()}
                         style={{
                             position: 'absolute',
-                            top: textPosition ? `${textPosition.y}px` : '0px',
-                            left: textPosition ? `${textPosition.x}px` : '0px',
+                            top: textPosition ? `${textPosition.y}px` : '20rem',
+                            left: textPosition ? `${textPosition.x}px` : '20rem',
                             width: '15rem',
                             color: selectedColor,
                         }}
