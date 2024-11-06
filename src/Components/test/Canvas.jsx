@@ -2,8 +2,8 @@
 // src/components/DrawingBoard.js
 
 import { useRef, useEffect, useState, forwardRef, useImperativeHandle, useCallback } from 'react';
-import axios from 'axios';
-import { jwtDecode } from 'jwt-decode';
+// import axios from 'axios';
+// import { jwtDecode } from 'jwt-decode';
 // import the rest of your imports
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;

@@ -4,6 +4,9 @@ export default {
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
   	extend: {
+		screens: {
+			'max-800': { 'max': '800px' },  // Applies styles for screens up to 800px wide
+		  },
 		boxShadow: {
 			'custom-light': 'rgba(0, 0, 0, 0.25)',
 		  },
