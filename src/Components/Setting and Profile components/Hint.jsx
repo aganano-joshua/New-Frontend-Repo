@@ -1,7 +1,7 @@
 import Card from "./Card/Hint_Data";
 import "./first.css";
 import { CardStackMinusIcon } from "@radix-ui/react-icons";
-import { assets } from "Images/asset";
+import { assets } from "../../../Images/asset";
 
 const Audio = () => {
   return (
