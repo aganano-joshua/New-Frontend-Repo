@@ -2,12 +2,16 @@ import { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Audio from "./Components/Setting and Profile components/Hint";
+import Landing from './Pages/landing/Landing'
+import Dashboard from "./Pages/landing/Landing";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/create-art" element={<Audio />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/create-art" element={<Dashboard />} />
+        <Route path="/audio" element={<Audio />} />
       </Routes>
     </Router>
   );
