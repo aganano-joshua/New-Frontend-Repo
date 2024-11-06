@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from '../../Components/LandingPage/Header'
-import Hero from '../../Components/LandingPage/Hero'
-import CloudSect from '../../Components/LandingPage/CloudSect'
-import CarouselComp from '../../Components/LandingPage/CarouselComp'
-import Accordion from '../../Components/LandingPage/Accordion'
-import Footer from '../../Components/LandingPage/Footer'
+import Header from '../../Components/landing/Header'
+import Hero from '../../Components/landing/Hero'
+import CloudSect from '../../Components/landing/CloudSect'
+import CarouselComp from '../../Components/landing/CarouselComp'
+import Accordion from '../../Components/landing/Accordion'
+import Footer from '../../Components/landing/Footer'
 import { assets } from '../../../Images/asset'
 
 
