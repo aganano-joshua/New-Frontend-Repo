@@ -4,10 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Dashboard from './Pages/Drawing/Dashboard'
 import Homepage from './Pages/Home/HomePage'
 import Landing from './Pages/landing/Landing'
-import HomePage from './Pages/Home/HomePage'
-
-
-
 function App() {
   return (
     <Router>
