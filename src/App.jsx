@@ -2,7 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Dashboard from './Pages/Drawing/Dashboard'
-import Homepage from './Pages/Home/HomePage'
+import HomePage from './Pages/landing/Landing'
+import Audio from './Components/Setting and Profile components/Audio'
 import Landing from './Pages/landing/Landing'
 function App() {
   return (
