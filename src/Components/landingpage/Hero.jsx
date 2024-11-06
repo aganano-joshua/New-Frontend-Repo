@@ -30,13 +30,13 @@ const Hero = () => {
     <img
       src={assets.group}
       alt=""
-      className="h-64 w-64 md:h-96 md:w-96 m-0 p-0 hidden md:block"
-      style={{ zIndex: '-1' }}
+      className="h-64 w-64 md:h-96 md:w-96 m-0 p-0 max-800:hidden md:block"
+      
     />
     <img
       src={assets.groups}
       alt=""
-      className="h-64 w-64 md:h-96 md:w-96 m-0 p-0 hidden md:block"
+      className="h-64 w-64 md:h-96 md:w-96 m-0 p-0 max-800:hidden md:block"
     />
   </div>
 </div>

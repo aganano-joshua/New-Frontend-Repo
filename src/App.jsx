@@ -12,7 +12,6 @@ function App() {
   return (
     <Router>
       <Routes>
-
         <Route path="/" element={<Landing />} />
         <Route path="/create-art" element={<Dashboard />} />
         <Route path="/audio" element={<Audio />} />
