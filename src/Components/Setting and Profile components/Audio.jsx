@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card/Carder";
 import "./first.css";
-import { assets } from "Images/asset";
+import { assets } from "../../../Images/asset";
 
 const Audio = () => {
   return (
