@@ -3,7 +3,7 @@ import { assets } from '../../../Images/asset'
 
 const Header = ({}) => {
     return (
-      <div className='flex flex-row gap justify-between items-center h-11 px-14 max-800:px-0 max-800:h-30' >
+      <div className='flex flex-row gap justify-between items-center px-14 max-800:px-0 max-800:h-30 overflow-hidden' >
         <div>
           <img src={assets.logo} alt="Company Logo" className='w-8 h-8'/>
         </div>
@@ -14,7 +14,7 @@ const Header = ({}) => {
             <li><a href="#about" className='font-bold'>About Us</a></li>
         </ul>
 
-        <div className='flex flex-row justify-between items-center gap-4'>
+        <div className='flex flex-row justify-between items-center gap-4 pt-3'>
             <button style={ {backgroundColor: "#008183", padding: "10px 15px", borderRadius: "10px", color: "white", fontWeight: "bold"} }>Sign Up</button>
             <button style={ {border: "1px solid #008183", color: "#000", padding: "10px 15px", borderRadius: "10px", fontWeight: "bold"} }>Log In</button>
             <img src={assets.music} alt="music Logo" className='w-8 h-8'/>

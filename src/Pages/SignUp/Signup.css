@@ -1,0 +1,282 @@
+.img1{
+    position: absolute;
+    top: 0;
+    left: 23%;
+    width: 150px;
+    height: 150px;
+}
+.img2{
+    position: absolute;
+    top: 15%;
+    left: 46px;
+    width: 150px;
+    height: 150px;
+
+}
+.img3{
+    position: absolute;
+    top: 40%;
+    left: 248px;
+    width: 150px;
+    height: 150px;
+}
+.img4{
+    position: absolute;
+    bottom: 0;
+    left: 215px;
+    width: 150px;
+    height: 150px;
+}
+.img5{
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    width: 150px;
+    height: 150px;
+}
+.img6{
+    position: absolute;
+    top: 162px;
+    left: 402px;
+    width: 150px;
+    height: 150px;
+}
+.img7{
+    position: absolute;
+    top: 70px;
+    right: 10%;
+    width: 150px;
+    height: 150px;
+}
+
+.hero-sign-up{
+    width: 450px;
+    height: 100%;
+    background-color: #ffffff;
+    border: 5px solid #009EA1;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+.signupLogo{
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /* height: 30px; */
+}
+.signup-welcomeText-sign{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid; */
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+.signup-welcomeText-sign h3,p {
+    color: #009EA1;
+}
+.form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+}
+
+.form div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.form div input {
+    border-radius: 8px;
+    border: 1px solid #A7A7A7;
+    height: 20px;
+    outline: none;
+    padding-inline: 10px;
+    color: #000;
+}
+.form div input[type="text"]::placeholder{
+    color: #A7A7A7;
+}
+.form div label{
+    font-weight: bold;
+}
+.btn-cont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#btn {
+    margin-top: 10px;
+    width: 195px;
+    height: 47px;
+    background-color: #008183;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: -5px;
+}
+
+input.error-border {
+    border-color: red;
+}
+
+label.error-label {
+    color: red;
+}
+.two-line-cont{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* margin-top: 30px; */
+}
+.two-lines{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    gap: 3px;
+}
+.two-lines h5{
+    color: #009EA1;
+}
+.line{
+    width: 100px;
+    height: 1px;
+    background-color: #A7A7A7;
+}
+.auth-cont{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+.auth img{
+    /* display: flex; */
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.ready-user{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.ready-user h5 a {
+    color: #009EA1;
+    text-decoration: none;
+}
+.signBack{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+.signBack p a {
+    text-decoration: none;
+    color: #000;
+    font-size: 19px;
+}
+
+.wrap-firstname-lastname{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+
+
+
+
+/* Media Queries */
+
+@media (max-width: 320px) {
+    .img1, .img2, .img3, .img4, .img5, .img6, .img7{
+        display: none;
+    }
+    .hero-sign-up{
+        background-color: transparent;
+        border: none;
+        margin-top: 40px;
+        width: 300px;
+        /* border: 1px solid; */
+        height: 60vh;
+    }
+    .signBack p a {
+        position: absolute;
+        left: 5%;
+        top: 50%;
+    }
+    body{
+        background-image: url(../../assets/Images/background.svg);
+        background-size: contain;
+        background-position: top;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100vh;
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        display: flex;
+        align-content: center;
+        align-items: center;
+       
+    }
+}
+@media (max-width: 375px) {
+
+}
+@media (max-width: 768px) {
+    .img1, .img2, .img3, .img4, .img6, .img7{
+        display: none;
+    }
+    body{
+        background-image: url(../../assets/Images/background.svg);
+        background-size: contain;
+        background-position: top;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100vh;
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+       
+    }
+    .hero-sign-up{
+        background-color: transparent;
+        /* border: none; */
+    }
+}

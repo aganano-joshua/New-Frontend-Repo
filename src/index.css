@@ -3,9 +3,7 @@
 @tailwind utilities;
 
 /* ... */
-*{
-  overflow: hidden;
-}
+
 
 @layer base {
   :root {

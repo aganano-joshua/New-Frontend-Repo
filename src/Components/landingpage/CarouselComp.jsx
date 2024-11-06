@@ -45,7 +45,7 @@ export default function CarouselComp() {
   }, [])
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-12 bg-[#e6f3f3] mb-10">
+    <div className="w-full max-w-6xl mx-auto px-4 py-12 bg-[#e6f3f3] mb-10 ">
       <h2 className="text-3xl font-bold text-center mb-8 text-[#2a9d8f]">Testimonials</h2>
       <h3 className="text-xl text-center mb-12 text-[#2a9d8f]">Our Kids Review</h3>
       <div className="relative overflow-hidden">

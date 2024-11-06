@@ -4,9 +4,9 @@ import { assets } from '../../../Images/asset'
 const Hero = () => {
   return (
     <div>
-      <div className="flex flex-col md:flex-row justify-between items-center mt-11 max-w-[800px] mx-auto px-4">
+      <div className="flex flex-col md:flex-row justify-between items-center mt-11 max-w-[800px] mx-auto px-4 overflow-hidden">
   <div className="herotext mt-10 md:mt-0 w-full  md:ml-10">
-    <h2 className="text-3xl md:text-5xl font-bold">
+    <h2 className="text-3xl md:text-5xl font-bold overflow-hidden">
       Unleash your <span style={{ color: '#008183' }}>Imagination: Create</span> your own adventure
     </h2>
     <p className="mt-4 text-base md:text-lg">

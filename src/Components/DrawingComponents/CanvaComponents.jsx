@@ -11,8 +11,8 @@ import {
   useCallback,
 } from 'react';
 // import './DrawingBoard.css';
-import axios from 'axios';
-import { jwtDecode } from 'jwt-decode';
+// import axios from 'axios';
+// import { jwtDecode } from 'jwt-decode';
 // import { Button } from '@chakra-ui/react';
 import { Button } from '../ui/button'
 import { Loader2 } from 'lucide-react';

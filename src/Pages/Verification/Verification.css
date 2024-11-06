@@ -1,0 +1,235 @@
+.hero {
+  width: 450px;
+  height: 90vh;
+  background-color: #ffffff;
+  border: 5px solid #009ea1;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+.signupLogo {
+  padding-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  /* height: 30px; */
+}
+.signup-welcomeText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  /* border: 1px solid; */
+  margin-top: 15px;
+  margin-bottom: 55px;
+}
+.signup-welcomeText h3,
+p {
+  color: #009ea1;
+  text-align: center;
+}
+.signup-welcomeText p {
+  width: 400px;
+  font-size: 15px;
+}
+.form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+/* form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 400;
+} */
+
+.new-message {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  /* border: 1px solid; */
+}
+
+.btn-cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+#btn {
+  margin-top: 10px;
+  width: 195px;
+  height: 47px;
+  background-color: #008183;
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+#btn a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: -5px;
+}
+
+input.error-border {
+  border-color: red;
+}
+
+label.error-label {
+  color: red;
+}
+.two-line-cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.two-lines {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  gap: 3px;
+}
+.two-lines h5 {
+  color: #009ea1;
+}
+.line {
+  width: 100px;
+  height: 1px;
+  background-color: #a7a7a7;
+}
+.auth-cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+.auth img {
+  /* display: flex; */
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.ready-user {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.ready-user h5 a {
+  color: #009ea1;
+  text-decoration: none;
+}
+.signBack {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+}
+.signBack p a {
+  text-decoration: none;
+  color: #000;
+  font-size: 19px;
+}
+
+/* Media Queries */
+
+@media (max-width: 320px) {
+  .img1,
+  .img2,
+  .img3,
+  .img4,
+  .img5,
+  .img6,
+  .img7 {
+    display: none;
+  }
+  .hero {
+    background-color: transparent;
+    border: none;
+    margin-top: 40px;
+    width: 300px;
+    /* border: 1px solid; */
+    height: 60vh;
+  }
+  .signBack p a {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+  }
+  form {
+    margin-top: -20px;
+  }
+  html {
+    overflow: hidden;
+  }
+  body {
+    oveflow: hidden;
+    background-image: url(../../assets/Images/background.svg);
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: 'wdth' 100;
+    display: flex;
+    align-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 375px) {
+    
+}
+@media (max-width: 768px) {
+  body {
+    background-image: url(../../assets/Images/background.svg);
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: 'wdth' 100;
+  }
+  .hero {
+    background-color: transparent;
+    /* border: none; */
+  }
+  .img1,
+  .img2,
+  .img3,
+  .img4,
+  .img6,
+  .img7 {
+    display: none;
+  }
+}

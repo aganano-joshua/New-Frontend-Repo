@@ -7,6 +7,7 @@ import Landing from './Pages/Landing/Landing'
 import HomePage from './Pages/HomePage/HomePage'
 
 
+
 function App() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
         <Route path="/create-art" element={<Dashboard />} />
         <Route path="/audio" element={<Audio />} />
         <Route path="/home-page" element={<HomePage />} />
+        
       </Routes>
     </Router>
   );
