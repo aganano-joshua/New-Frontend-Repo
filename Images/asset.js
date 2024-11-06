@@ -30,6 +30,19 @@ import sketch from './sketch.png'
 import ellipse from './ellipse.png'
 import ellipse1 from './ellipse1.png'
 import ellipse2 from './ellipse2.png'
+import vec from './Vec.png'
+import frame from  './Frame.png'
+import framee1 from './Frame1.png'
+import frame2 from './Frame2.png'
+import frame3 from './Frame3.png'
+import group53 from './Group 53.png'
+import  group55 from './Group 55.png'
+import image42 from './image 42.png'
+import settings from './SETTINGS.png'
+import union from './Union.png'
+import w from './w.png'
+
+
 
 
 export const assets = {
@@ -50,6 +63,7 @@ export const assets = {
     music,
     group,
     groups,
+
     set,
     pal,
     ptool,
@@ -65,5 +79,17 @@ export const assets = {
     ldi,
     fb,
     x,
-    ig
+    ig,
+    vec,
+    frame,
+    frame2,
+    frame3,
+    framee1,
+    group53,
+    group55,
+    image42,
+    settings,
+    union,
+    w
+
 }
