@@ -5,6 +5,7 @@ import Dashboard from './Pages/Drawing/Dashboard'
 import Homepage from './Pages/HomePage/HomePage'
 import Landing from './Pages/Landing/Landing'
 
+
 function App() {
 
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/create-art' element={<Dashboard/>}/>
         <Route path='/' element={<Landing/>}/>
         <Route path='/home-page' element={<Homepage/>}/>
+        
       </Routes>
     </Router>
   )
