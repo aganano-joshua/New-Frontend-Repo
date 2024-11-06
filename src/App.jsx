@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Audio from "./Components/Setting and Profile components/Hint";
 import Landing from './Pages/landing/Landing'
-import Dashboard from "./Pages/landing/Landing";
+import Dashboard from "./Pages/Drawing/Dashboard";
 
 function App() {
   return (
