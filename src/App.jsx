@@ -1,19 +1,16 @@
-import { useState } from 'react'
-import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Dashboard from './Pages/Drawing/Dashboard'
-import Landing from './Pages/landing/Landing'
+import { useState } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Audio from "./Components/Setting and Profile components/Hint";
 
 function App() {
-
   return (
     <Router>
       <Routes>
-        <Route path='/create-art' element={<Dashboard/>}/>
-        <Route path='/' element={<Landing/>}/>
+        <Route path="/create-art" element={<Audio />} />
       </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
