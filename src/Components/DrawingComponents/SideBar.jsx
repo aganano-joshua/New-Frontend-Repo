@@ -5,11 +5,11 @@ import Delete from './Delete';
 
 
 const tools = [
-    { name: 'pen', url: assets.pen },
-    { name: 'brush', url: assets.brush },
-    { name: 'eraser', url: assets.eraser },
-    { name: 'color', url: assets.colorpal },
-    { name: 'text', url: assets.text },
+    { name: 'pen', url: assets.pen, id: 'pencil' },
+    { name: 'brush', url: assets.brush, id: 'brush' },
+    { name: 'eraser', url: assets.eraser, id: 'eraser' },
+    { name: 'color', url: assets.colorpal, id: 'color' },
+    { name: 'text', url: assets.text, id: 'text' },
 ]
 
 const SideBar = ({ selectTool, selectedTool }) => {
