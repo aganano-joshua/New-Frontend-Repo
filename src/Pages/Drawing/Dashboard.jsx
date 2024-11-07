@@ -63,6 +63,10 @@ const Dashboard = () => {
     //     };
     // }, [isPlaying, audio]);
 
+//     const justReg = () => {
+//         setGreet(true)
+// }
+
     const steps = [
         {
             element: '#sidebar-option2',
@@ -104,21 +108,6 @@ const Dashboard = () => {
     const justReg = () => {
         setGreet(true)
     }
-
-    const steps = [
-        {
-            element: '#header-title',
-            content: 'This is the header where you can see your navigation options.',
-        },
-        {
-            element: '#sidebar-option1',
-            content: 'Here’s Option 1 in the sidebar. You can click here for more features.',
-        },
-        {
-            element: '#sidebar-option2',
-            content: 'Option 2 in the sidebar. More exciting tools here!',
-        },
-    ];
 
     const startTour = () => {
         setIsTourActive(true);
@@ -175,8 +164,8 @@ const Dashboard = () => {
         }
     };
 
-    const endTour = () => {
-        setIsTourActive(false)
+    // const endTour = () => {
+    //     setIsTourActive(false)
     const endTour = () => {
         setIsTourActive(false);
         removeHighlight(steps[tourStep].element);  // Remove highlight when the tour ends
@@ -189,10 +178,10 @@ const Dashboard = () => {
         setTourStep(0);
     };
 
+    // useEffect(() => {
+    //     justReg();  // Automatically start the tour when the page loads
     useEffect(() => {
         justReg();  // Automatically start the tour when the page loads
-    useEffect(() => {
-        startTour();  // Automatically start the tour when the page loads
     }, []);
 //   const drawingBoardRef = useRef();
 
@@ -256,12 +245,6 @@ const Dashboard = () => {
 
 
 // if user just registered
-const justReg = () => {
-    const user = true;
-    if(user === true){
-        setGreet(true)
-    }
-}
 
 const handleUndo = () => {
     if (drawItem.length > 0) {
