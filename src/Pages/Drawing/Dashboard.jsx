@@ -78,7 +78,7 @@ const Dashboard = () => {
         },
     ];
 
-    const stepsTool = [
+    const stepTool = [
         {
             element: '#pencil',
             content: 'Click The Pencil Tool to Draw',
@@ -116,7 +116,7 @@ const Dashboard = () => {
         setGreet(false)
         setIsTourToolActive(true);
         setTourStep(0);
-        highlightToolTarget(stepsTool[0].element);
+        highlightToolTarget(stepTool[0].element);
     };
 
     const highlightToolTarget = (selector) => {
@@ -151,10 +151,10 @@ const Dashboard = () => {
     };
 
     const nextToolStep = () => {
-        removeHighlight(stepsTool[tourStep].element);  // Remove highlight from the current element
-        if (tourStep < stepsTool.length - 1) {
+        removeHighlight(stepTool[tourStep].element);  // Remove highlight from the current element
+        if (tourStep < stepTool.length - 1) {
             setTourStep(tourStep + 1);
-            highlightTarget(stepsTool[tourStep + 1].element);  // Highlight the next element
+            highlightTarget(stepTool[tourStep + 1].element);  // Highlight the next element
         } else {
             endToolTour();
             startTour();
@@ -169,7 +169,7 @@ const Dashboard = () => {
 
     const endToolTour = () => {
         setIsTourToolActive(false)
-        removeHighlight(stepsTool[tourStep].element);  // Remove highlight when the tour ends
+        removeHighlight(stepTool[tourStep].element);  // Remove highlight when the tour ends
         setTourStep(0);
     };
 
@@ -302,8 +302,8 @@ const readTextAloud = (text) => {
             )}
             {isTourToolActive && (
                 <TourTooltip
-                    content={stepsTool[tourStep].content}
-                    targetElement={stepsTool[tourStep].element}
+                    content={stepTool[tourStep].content}
+                    targetElement={stepTool[tourStep].element}
                     onNext={nextToolStep}
                     onEnd={endToolTour}
                 />
