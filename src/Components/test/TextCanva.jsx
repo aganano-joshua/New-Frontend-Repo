@@ -3,8 +3,9 @@
 import { useRef, useEffect, useState, forwardRef, useImperativeHandle, useCallback } from 'react';
 import { Input } from "../ui/input"
 import DrawingControls from '../DrawingComponents/DrawingControl';
+import axios from 'axios';
 // import axios from 'axios';
-// import jwtDecode from 'jwt-decode'; // Correct import syntax for jwt-decode
+import {jwtDecode} from 'jwt-decode'; // Correct import syntax for jwt-decode
 // Import the rest of your imports
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
@@ -32,6 +33,8 @@ const Canvas = forwardRef(({ text, penSize=2, selectedTool, fontSize= 20, canvas
             setTextPosition({ x: clientX, y: clientY });
             setIsTextInputVisible(true);
             setTextInput('');
+        }else{
+            setIsTextInputVisible(false)
         }
     };
 
@@ -49,6 +52,11 @@ const Canvas = forwardRef(({ text, penSize=2, selectedTool, fontSize= 20, canvas
         setIsTextInputVisible(false);
         setTextPosition(null);
     };
+
+    const hideTextInput = () => {
+        console.log("set to false")
+        setIsTextInputVisible(false)
+    }
 
     // Save text on Enter key press or outside click
     useEffect(() => {
@@ -87,8 +95,10 @@ const Canvas = forwardRef(({ text, penSize=2, selectedTool, fontSize= 20, canvas
     useEffect(() => {
         const selectSize = ()=>{
             if(selectedTool === 'pen'){
+                hideTextInput()
                 context.lineWidth = penSize
             }else if(selectedTool === 'brush'){
+                hideTextInput()
                 context.lineWidth = brushSize
             } else{
                 context.lineWidth = brushSize
@@ -369,8 +379,8 @@ const Canvas = forwardRef(({ text, penSize=2, selectedTool, fontSize= 20, canvas
                         onKeyDown={(e) => e.key === 'Enter' && placeTextOnCanvas()}
                         style={{
                             position: 'absolute',
-                            top: textPosition ? `${textPosition.y}px` : '20rem',
-                            left: textPosition ? `${textPosition.x}px` : '20rem',
+                            top: textPosition ? `${textPosition.y}px` : '0',
+                            left: textPosition ? `${textPosition.x}px` : '0',
                             width: '15rem',
                             color: selectedColor,
                         }}

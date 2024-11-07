@@ -4,6 +4,7 @@ import { assets } from "../../../Images/asset";
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { Loader2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const items = [
     { id: 1, name: 'Item One', category: 'Category A' },
@@ -95,17 +96,22 @@ const DropDownMenu = () => {
 
 export const HeaderComponents = ({ saveDrawing, imageId, loading, onUndo }) => {
     const [isVisible, setIsVisible] = useState(false)
+    const navigate = useNavigate()
+
+    const homePage = () => {
+        navigate("/home-page")
+    }
 
     const toggleVisibility = () => {
         setIsVisible(!isVisible);
     }
     return (
         <div className='flex flex-row justify-between items-center w-full pt-[20px] pb-[10px] pl-[10px] pr-[10px] h-[5rem] absolute z-10 bg-white'>
-            <MdOutlineArrowBackIosNew size={30} />
+            <MdOutlineArrowBackIosNew size={30} onClick={homePage} className="cursor-pointer"/>
             <div className="flex flex-row gap-4 justify-center items-center">
-                <Button className='rounded-[20px] bg-[#096566]' onClick={onUndo}>Undo</Button>
-                <Button className='rounded-[20px] bg-[#096566]'>Share</Button>
-                <Button className='rounded-[20px] bg-[#096566]'  onClick={saveDrawing} disabled={loading}>{loading ? (
+                <Button className='rounded-[20px] bg-[#096566]' id="header-help-button" onClick={onUndo}>Undo</Button>
+                <Button className='rounded-[20px] bg-[#096566]' id="header-title">Share</Button>
+                <Button className='rounded-[20px] bg-[#096566]' id="sidebar-option1"  onClick={saveDrawing} disabled={loading}>{loading ? (
     <>
       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
     </>
