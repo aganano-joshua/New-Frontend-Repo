@@ -28,40 +28,40 @@ const Dashboard = () => {
     const [isTourToolActive, setIsTourToolActive] = useState(false); // Toggle the tour on/off
 
 
-    const playAudio = () => {
-        audio.muted = false; // Ensure audio is unmuted
-        audio.loop = true;
-        audio.play()
-            .then(() => {
-                setIsAutoplayed(true);
-            })
-            .catch((error) => {
-                console.log("Autoplay failed:", error);
-            });
-    };
+    // const playAudio = () => {
+    //     audio.muted = false; // Ensure audio is unmuted
+    //     audio.loop = true;
+    //     audio.play()
+    //         .then(() => {
+    //             setIsAutoplayed(true);
+    //         })
+    //         .catch((error) => {
+    //             console.log("Autoplay failed:", error);
+    //         });
+    // };
   
       const clickBtn = () => {
-        playAudio()
+        playBackgroundMusic()
       }
   
-      useEffect(() => {
-        // Handle when audio should play or pause
-        if (isPlaying) {
-            // If the audio is not already playing, try to play it
-            if (!isAutoplayed) {
-                playAudio(); // Play audio
-            }
-        } else {
-            audio.pause(); // Pause the audio if not playing
-            audio.currentTime = 0; // Reset audio to the beginning
-        }
+    //   useEffect(() => {
+    //     // Handle when audio should play or pause
+    //     if (isPlaying) {
+    //         // If the audio is not already playing, try to play it
+    //         if (!isAutoplayed) {
+    //             playAudio(); // Play audio
+    //         }
+    //     } else {
+    //         audio.pause(); // Pause the audio if not playing
+    //         audio.currentTime = 0; // Reset audio to the beginning
+    //     }
   
-        // Cleanup on unmount
-        return () => {
-            audio.pause(); // Stop audio on component unmount
-            audio.currentTime = 0; // Reset audio time
-        };
-    }, [isPlaying, audio]);
+    //     // Cleanup on unmount
+    //     return () => {
+    //         audio.pause(); // Stop audio on component unmount
+    //         audio.currentTime = 0; // Reset audio time
+    //     };
+    // }, [isPlaying, audio]);
 
     const steps = [
         {
@@ -241,6 +241,49 @@ const handleUndo = () => {
         setDrawItem(prev => prev.slice(0, -1)); // Remove the last item
     }
 }
+
+// Music
+const [isSpeaking, setIsSpeaking] = useState(false);
+    const musicRef = useRef(null);
+
+    const playBackgroundMusic = () => {
+        if (!musicRef.current) {
+            musicRef.current = new Audio(assets.backgroundMusic);
+            musicRef.current.loop = true;  // Loops the music
+            musicRef.current.volume = 0.5; // Set initial volume
+            musicRef.current.play();
+        }
+    };
+
+const readTextAloud = (text) => {
+    // Check if the browser supports speech synthesis
+    if ('speechSynthesis' in window) {
+        // Reduce background music volume
+        if (musicRef.current) {
+            musicRef.current.volume = 0.1; // Reduce to 10% while speaking
+        }
+
+        text = ''
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        setIsSpeaking(true);
+
+        // Add event listener for when speech ends
+        utterance.onend = () => {
+            setIsSpeaking(false);
+            // Restore music volume after speaking
+            if (musicRef.current) {
+                musicRef.current.volume = 0.5; // Reset to normal volume
+            }
+        };
+
+        // Speak the text
+        window.speechSynthesis.speak(utterance);
+    } else {
+        console.error('Speech synthesis not supported in this browser.');
+    }
+};
+
     return (
         <div className='overflow-x-hidden overflow-y-hidden overflow-hidden'>
             <HeaderComponents saveDrawing={saveDrawingFn} imageId={imageId} loading={loading} onUndo={handleUndoClick}/>
