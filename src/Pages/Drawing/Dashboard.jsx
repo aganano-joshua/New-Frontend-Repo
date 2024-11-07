@@ -105,6 +105,21 @@ const Dashboard = () => {
         setGreet(true)
     }
 
+    const steps = [
+        {
+            element: '#header-title',
+            content: 'This is the header where you can see your navigation options.',
+        },
+        {
+            element: '#sidebar-option1',
+            content: 'Here’s Option 1 in the sidebar. You can click here for more features.',
+        },
+        {
+            element: '#sidebar-option2',
+            content: 'Option 2 in the sidebar. More exciting tools here!',
+        },
+    ];
+
     const startTour = () => {
         setIsTourActive(true);
         setTourStep(0);
@@ -125,7 +140,6 @@ const Dashboard = () => {
             element.classList.add('highlighted-tour-target');
         }
     };
-
     const highlightTarget = (selector) => {
         const element = document.querySelector(selector);
         if (element) {
@@ -163,6 +177,8 @@ const Dashboard = () => {
 
     const endTour = () => {
         setIsTourActive(false)
+    const endTour = () => {
+        setIsTourActive(false);
         removeHighlight(steps[tourStep].element);  // Remove highlight when the tour ends
         setTourStep(0);
     };
@@ -175,6 +191,8 @@ const Dashboard = () => {
 
     useEffect(() => {
         justReg();  // Automatically start the tour when the page loads
+    useEffect(() => {
+        startTour();  // Automatically start the tour when the page loads
     }, []);
 //   const drawingBoardRef = useRef();
 
@@ -235,6 +253,15 @@ const Dashboard = () => {
 //       alert("clicked")
 //     }
 //   };
+
+
+// if user just registered
+const justReg = () => {
+    const user = true;
+    if(user === true){
+        setGreet(true)
+    }
+}
 
 const handleUndo = () => {
     if (drawItem.length > 0) {
