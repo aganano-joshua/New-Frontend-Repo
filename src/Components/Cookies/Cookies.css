@@ -1,0 +1,30 @@
+.bg-white {
+  background-color: #fff;
+}
+.text-gray-800 {
+  color: #333;
+}
+.text-gray-600 {
+  color: #666;
+}
+.bg-teal-500 {
+  background-color: #38b2ac;
+}
+.hover\:bg-teal-600:hover {
+  background-color: #319795;
+}
+.bg-gray-100 {
+  background-color: #f7fafc;
+}
+.hover\:bg-gray-200:hover {
+  background-color: #edf2f7;
+}
+.fixed {
+  position: fixed;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
