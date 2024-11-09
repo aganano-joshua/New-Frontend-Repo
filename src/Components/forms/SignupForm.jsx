@@ -1,5 +1,5 @@
-import SigninBg from '../Siginbg/Siginbg/SiginBg'
-import InputF from '../InputField'
+import SigninBg from '@/Components/Siginbg/Siginbg/SiginBg'
+// import InputF from '../InputField'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import SignInOption from '../SignInOption'

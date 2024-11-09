@@ -1,6 +1,6 @@
-import { assets } from '../../Images/assets';
-import ApiService from '@/serverActions/api';
-import './Global.css'
+// import { assets } from '../../Images/assets';
+// import ApiService from '@/serverActions/api';
+// import './Global.css'
 import { useNavigate } from 'react-router-dom';
 
 const SignInOption = () => {
@@ -22,7 +22,7 @@ const SignInOption = () => {
         <div className='option-or'><div className='long-or'></div><span style={{paddingBottom: "3px"}}>or</span><div className='long-or'></div></div>
         <div>
         <div className="auth" onClick={gmailLogin}>
-            <img src={assets.mingCute} alt="" />
+            {/* <img src={assets.mingCute} alt="" /> */}
           </div>
         </div>
     </div>

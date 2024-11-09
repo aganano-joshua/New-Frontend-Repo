@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/rules-of-hooks */
-import SigninBg from '@/components/Siginbg/Siginbg/SiginBg'
+import SigninBg from '@/Components/Siginbg/Siginbg/SiginBg'
 import React, { useState } from 'react'
-import { assets } from '../../../Images/assets'
+// import { assets } from '../../../Images/assets'
 import InputF from '@/components/InputField'
 import SignInOption from '@/components/SignInOption'
 import UserNO from '@/components/UserNO'
@@ -10,7 +10,7 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Loader2 } from 'lucide-react'
-import Popup from '../Popup'
+// import Popup from '../Popup'
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL
 
@@ -104,7 +104,7 @@ const signin = () => {
             <SigninBg />
             <div style={{ zIndex: "20", height: "95%", width: "40rem", background: "white", marginLeft: "30px", border: "5px solid rgba(0, 158, 161, 1)", marginRight: "30px" }}>
                 <div className="signupLogo">
-                    <img src={assets.logo} alt="logo" width={150} height={90} />
+                    {/* <img src={assets.logo} alt="logo" width={150} height={90} /> */}
                 </div>
                 <div className="" style={{ display: "flex", alignItems: "center", flexDirection: "column", fontSize: "1.5rem" }}>
                     <h3 className='flex justify-center items-center text-center' style={{ color: "#009EA1", fontWeight: "bold" }}>Welcome to Cardboard</h3>
