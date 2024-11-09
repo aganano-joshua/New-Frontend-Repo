@@ -310,7 +310,8 @@
 
 #settings-bar h1 {
     margin-right: 3rem;
-    font-weight: normal
+    font-weight: normal;
+    padding-left: 20px;
 }
 
 input[type="text"] {

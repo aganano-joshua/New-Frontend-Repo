@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import CanvaComponents from '../../Components/DrawingComponents/CanvaComponents'
 import SideBar from '../../Components/DrawingComponents/SideBar'
-import { HeaderComponents } from '../../Components/DrawingComponents/HeaderComponents'
+import { HeaderComponents } from '../../../assets/images/icons/tools/HeaderComponents'
 import { useNavigate } from 'react-router-dom'
 import Canvas from '../../Components/test/Canvas'
 import TextCanva from '../../Components/test/TextCanva'

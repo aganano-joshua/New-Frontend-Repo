@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 // '../../../index.js'
 
 const AutoDrawComponent = () => {
@@ -24,6 +24,8 @@ const AutoDrawComponent = () => {
 
   return (
     <div>
+      <HelmetProvider>
+
       <Helmet>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
@@ -51,6 +53,7 @@ const AutoDrawComponent = () => {
     {`window.dataLayer = window.dataLayer || [];`}
   </script>
       </Helmet>
+      </HelmetProvider>
       
       <noscript>
         <h1 itemProp="name">AutoDraw</h1>
