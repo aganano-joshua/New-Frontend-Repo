@@ -6,6 +6,8 @@ import HomePage from './Pages/Home/HomePage'
 import Audio from './Components/Setting and Profile components/Audio'
 import Landing from './Pages/landing/Landing'
 import CookiesConsentModal from './Components/Cookies/Cookies'
+import SignIn from './Pages/SignIn/SignIn'
+
 function App() {
   return (
     <Router>
@@ -15,6 +17,7 @@ function App() {
         <Route path="/create-art" element={<Dashboard />} />
         <Route path="/audio" element={<Audio />} />
         <Route path="/home-page" element={<HomePage />} />
+        <Route path="/sign-in" element={<SignIn />} />
       </Routes>
     </Router>
   );

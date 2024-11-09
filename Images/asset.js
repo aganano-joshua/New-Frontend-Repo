@@ -40,6 +40,8 @@ import  group55 from './Group 55.png'
 import image42 from './image 42.png'
 import settings from './SETTINGS.png'
 import union from './Union.png'
+import google from './google.png'
+import apple from './apple.png'
 import w from './w.png'
 import backgroundMusic from './bensound-spotlight.mp3'
 import touchUi from './zapsplat_vehicles_car_fan_dial_turn_click_single_2005_001_111852.mp3'
@@ -48,6 +50,8 @@ import touchUi from './zapsplat_vehicles_car_fan_dial_turn_click_single_2005_001
 
 
 export const assets = {
+    apple,
+    google,
     paint,
     draw,
     sketch,
