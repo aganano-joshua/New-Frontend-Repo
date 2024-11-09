@@ -77,11 +77,11 @@ function TourTooltip({ content, targetElement, onNext, onEnd }) {
             <Button onClick={onNext} className='text-[0.6rem] w-[2rem] h-[1.5rem] bg-[#096566]'>Next</Button>
             </div>
             </div>
-            border: '1px solid black',
+            {/* border: '1px solid black',
             borderRadius: '5px',
             zIndex: 1000,
             maxWidth: '200px',
-        }} className="tooltip-container">
+        }} className="tooltip-container"> */}
             <p>{content}</p>
             <button onClick={onNext}>Next</button>
             <button onClick={onEnd}>End Tour</button>
