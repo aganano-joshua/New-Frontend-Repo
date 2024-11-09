@@ -109,7 +109,8 @@ export const HeaderComponents = ({ saveDrawing, imageId, loading, onUndo }) => {
         <div className='flex flex-row justify-between items-center w-full pt-[20px] pb-[10px] pl-[10px] pr-[10px] h-[5rem] absolute z-10 bg-white'>
             <MdOutlineArrowBackIosNew size={30} onClick={homePage} className="cursor-pointer"/>
             <div className="flex flex-row gap-4 justify-center items-center">
-                <Button className='rounded-[20px] bg-[#096566]' id="header-help-button" onClick={onUndo}>Undo</Button>
+                <Button className='rounded-[20px] bg-[#096566]' id="sidebar-option2" onClick={onUndo}>Undo</Button>
+                {/* <Button className='rounded-[20px] bg-[#096566]' id="header-help-button" onClick={onUndo}>Undo</Button> */}
                 <Button className='rounded-[20px] bg-[#096566]' id="header-title">Share</Button>
                 <Button className='rounded-[20px] bg-[#096566]' id="sidebar-option1"  onClick={saveDrawing} disabled={loading}>{loading ? (
     <>

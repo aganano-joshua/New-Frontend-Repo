@@ -1,7 +1,13 @@
 import React from 'react'
 import { assets } from '../../../Images/asset'
+import { useNavigate } from 'react-router-dom'
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const createArt = () => {
+    navigate("/create-art")
+  }
   return (
     <div>
       <div className="flex flex-col md:flex-row justify-between items-center mt-11 max-w-[800px] mx-auto px-4 overflow-hidden">
@@ -21,6 +27,7 @@ const Hero = () => {
           color: '#fff',
           fontWeight: 'bold'
         }}
+        onClick={createArt}
       >
         Create Art
       </button>

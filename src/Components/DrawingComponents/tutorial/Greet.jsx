@@ -40,6 +40,7 @@
 // export default TourTooltip;
 
 // TourTooltip.js
+import { Button } from '@/Components/ui/button';
 import React, { useEffect, useState } from 'react';
 // import './TourTooltip.css'; // CSS file for tooltip styling
 
@@ -58,12 +59,24 @@ function TourTooltip({ content, targetElement, onNext, onEnd }) {
     }, [targetElement]);
 
     return (
+        <div className='spotlight-overlay'>
         <div style={{
             position: 'absolute',
             top: `${position.top}px`,
             left: `${position.left}px`,
             background: 'white',
             padding: '10px',
+            // border: '1px solid black',
+            borderRadius: '5px',
+            zIndex: 1000,
+            maxWidth: '300px',
+        }} className="tooltip-container text-[0.8rem] font-bold">
+            <p>{content}</p>
+            <div className='flex flex-row w-full justify-between items-center mt-[5px]'>
+            <Button onClick={onEnd} className='w-[3rem] h-[1.5rem] text-[0.6rem] bg-[#096566]'>End Tour</Button>
+            <Button onClick={onNext} className='text-[0.6rem] w-[2rem] h-[1.5rem] bg-[#096566]'>Next</Button>
+            </div>
+            </div>
             border: '1px solid black',
             borderRadius: '5px',
             zIndex: 1000,
