@@ -1,9 +1,19 @@
 {
-    "build": {
-    "env": {
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "dist/**/*",
+      "use": "@vercel/static"
+    },
+    {
+      "env": {
       "NODE_ENV": "production"
     }
-  },
+    }
+  ],
     "rewrites": [
       {
         "source": "/(.*)",
