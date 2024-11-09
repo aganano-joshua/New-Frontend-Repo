@@ -38,14 +38,14 @@ const AutoDrawComponent = () => {
         <meta property="og:description" content="Fast drawing for everyone. AutoDraw pairs machine learning with drawings from talented artists to help you draw stuff fast." />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@google" />
-        <meta name="twitter:title" content="AutoDraw" />
+        <meta name="twitter:title" content="Cardboard" />
         <meta name="twitter:description" content="Fast drawing for everyone. AutoDraw pairs machine learning with drawings from talented artists to help you draw stuff fast." />
         <meta name="twitter:image" content="http://www.autodraw.com/assets/images/autodraw-shareimage.png" />
         <link href="/assets/artlab.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Anton|Archivo+Black|Bevan|Corben:700|Covered+By+Your+Grace|Crimson+Text|Didact+Gothic|Graduate|Karla|Pacifico|Roboto+Mono|Rubik+Mono+One|Stint+Ultra+Expanded|UnifrakturCook:700|Yellowtail" rel="stylesheet" />
         <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
         <link rel="apple-touch-icon-precomposed" href="/assets/images/favicon.png" />
-        <title>AutoDraw</title>
+        <title>Cardboard</title>
         <link href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css" rel="stylesheet" />
         <script>
     {`window.dataLayer = window.dataLayer || [];`}
