@@ -3,20 +3,41 @@ import { HelmetProvider, Helmet } from 'react-helmet-async';
 // '../../../index.js'
 
 const AutoDrawComponent = () => {
-  useEffect(() => {
-    // Dynamically add external scripts to the body
-    const script = document.createElement('script');
-    script.src = '/index.js';
-    script.async = true;
-    document.body.appendChild(script);
+  // useEffect(() => {
+  //   // Dynamically add external scripts to the body
+  //   const script = document.createElement('script');
+  //   script.src = '/index.js';
+  //   script.async = true;
+  //   document.body.appendChild(script);
 
+  
+  //   return () => {
+  //     // Clean up scripts on component unmount
+  //     document.body.removeChild(script);
+  //   };
+  // }, []);
+  
+  useEffect(() => {
+    // Create the script element
+    const script = document.createElement('script');
+    script.src = '/index.js'; // Path to your external JS file in the public folder
+    script.async = true;
+    script.onload = () => {
+      console.log('External script loaded');
+    };
+    script.onerror = () => {
+      console.error('Failed to load external script');
+    };
+    
+    // Append the script to the body
+    document.body.appendChild(script);
     const cookieScript = document.createElement('script');
     cookieScript.src = 'https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js';
     cookieScript.setAttribute('data-glue-cookie-notification-bar-category', '2B');
     document.body.appendChild(cookieScript);
 
+    // Clean up: remove the script when the component is unmounted
     return () => {
-      // Clean up scripts on component unmount
       document.body.removeChild(script);
       document.body.removeChild(cookieScript);
     };
