@@ -8,6 +8,7 @@ import Landing from './Pages/landing/Landing'
 import CookiesConsentModal from './Components/Cookies/Cookies'
 import SignIn from './Pages/SignIn/SignIn'
 import SignUp from './Components/Signup/SignUp'
+import ChangePwd from './Pages/Reset/ChangePwd'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/home-page" element={<HomePage />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/reset" element={<ChangePwd />} />
       </Routes>
     </Router>
   );
