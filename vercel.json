@@ -1,9 +1,11 @@
 {
-    "build": {
-    "env": {
-      "NODE_ENV": "production"
-    }
-  },
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "dist/**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
     "rewrites": [
       {
         "source": "/(.*)",
