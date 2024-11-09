@@ -9,21 +9,22 @@ import Greet from '@/Components/DrawingComponents/tutorial/Greet'
 import TourTooltip from '@/Components/DrawingComponents/tutorial/Greet'
 import WelcomeText from '@/Components/DrawingComponents/tutorial/WelcomeText'
 import { assets } from '../../../Images/asset'
+import AutoDrawComponent from '@/Components/test/AutoDrawComponent'
 
 const Dashboard = () => {
     const [audio] = useState(new Audio(assets.backgroundMusic))
     const [isPlaying, setIsPlaying] = useState(true);
     const [isAutoplayed, setIsAutoplayed] = useState(false);
     const [selectedTool, setSelectedTool] = useState('pen')
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [selectedColor, setSelectedColor] = useState('#000000');
-  const [brushSize, setBrushSize] = useState(5);
-  const [saveDrawingFn, setSaveDrawingFn] = useState(null);
-  const [imageId, setImageId] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [drawItem, setDrawItem] = useState([]);
-  const [greet, setGreet] = useState(false)
-  const [tourStep, setTourStep] = useState(0); // Track the current step
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [selectedColor, setSelectedColor] = useState('#000000');
+    const [brushSize, setBrushSize] = useState(5);
+    const [saveDrawingFn, setSaveDrawingFn] = useState(null);
+    const [imageId, setImageId] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [drawItem, setDrawItem] = useState([]);
+    const [greet, setGreet] = useState(false)
+    const [tourStep, setTourStep] = useState(0); // Track the current step
     const [isTourActive, setIsTourActive] = useState(false); // Toggle the tour on/off
     const [isTourToolActive, setIsTourToolActive] = useState(false); // Toggle the tour on/off
 
@@ -39,11 +40,11 @@ const Dashboard = () => {
     //             console.log("Autoplay failed:", error);
     //         });
     // };
-  
-      const clickBtn = () => {
+
+    const clickBtn = () => {
         playBackgroundMusic()
-      }
-  
+    }
+
     //   useEffect(() => {
     //     // Handle when audio should play or pause
     //     if (isPlaying) {
@@ -55,7 +56,7 @@ const Dashboard = () => {
     //         audio.pause(); // Pause the audio if not playing
     //         audio.currentTime = 0; // Reset audio to the beginning
     //     }
-  
+
     //     // Cleanup on unmount
     //     return () => {
     //         audio.pause(); // Stop audio on component unmount
@@ -63,9 +64,9 @@ const Dashboard = () => {
     //     };
     // }, [isPlaying, audio]);
 
-//     const justReg = () => {
-//         setGreet(true)
-// }
+    //     const justReg = () => {
+    //         setGreet(true)
+    // }
 
     const steps = [
         {
@@ -104,7 +105,7 @@ const Dashboard = () => {
             content: 'Click this button to add text',
         },
     ];
-    
+
     const justReg = () => {
         setGreet(true)
     }
@@ -183,77 +184,77 @@ const Dashboard = () => {
     useEffect(() => {
         justReg();  // Automatically start the tour when the page loads
     }, []);
-//   const drawingBoardRef = useRef();
+    //   const drawingBoardRef = useRef();
 
-  const handleUndoClick = () => {
-    if (drawingBoardRef.current) {
-      drawingBoardRef.current.undoLastStroke();
-      alert("Undo Drawing")
+    const handleUndoClick = () => {
+        if (drawingBoardRef.current) {
+            drawingBoardRef.current.undoLastStroke();
+            alert("Undo Drawing")
+        }
+    };
+
+    const handleSaveClick = (saveFn, imgId, isLoading) => {
+        setSaveDrawingFn(() => saveFn);
+        setImageId(imgId);
+        setLoading(isLoading);
+    };
+
+    //   const { token } = useAuth();
+
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen)
     }
-  };
+    const drawingBoardRef = useRef(null)
 
-  const handleSaveClick = (saveFn, imgId, isLoading) => {
-    setSaveDrawingFn(() => saveFn);
-    setImageId(imgId);
-    setLoading(isLoading);
-  };
-
-//   const { token } = useAuth();
-
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen)
-  }
-  const drawingBoardRef = useRef(null)
-
-  const handlePrint = () => {
-    if (drawingBoardRef.current) {
-      drawingBoardRef.current.printCanvas()
+    const handlePrint = () => {
+        if (drawingBoardRef.current) {
+            drawingBoardRef.current.printCanvas()
+        }
     }
-  }
 
-  const handleClear = () => {
-    if (drawingBoardRef.current) {
-      drawingBoardRef.current.clearCanvas()
+    const handleClear = () => {
+        if (drawingBoardRef.current) {
+            drawingBoardRef.current.clearCanvas()
+        }
     }
-  }
 
-  const handleShare = () => {
-    if (drawingBoardRef.current) {
-      drawingBoardRef.current.shareCanvas()
+    const handleShare = () => {
+        if (drawingBoardRef.current) {
+            drawingBoardRef.current.shareCanvas()
+        }
     }
-  }
 
-  const handleColorChange = (newColor) => {
-    setSelectedColor(newColor);
-  };
+    const handleColorChange = (newColor) => {
+        setSelectedColor(newColor);
+    };
 
-  const handleBrushSizeChange = (newSize) => {
-    setBrushSize(newSize);
-  };
+    const handleBrushSizeChange = (newSize) => {
+        setBrushSize(newSize);
+    };
 
-  const handleDraw = (newItem) => {
-    setDrawItem(prev => [...prev, newItem]); // Keep track of drawn items
-};
+    const handleDraw = (newItem) => {
+        setDrawItem(prev => [...prev, newItem]); // Keep track of drawn items
+    };
 
-// const handleTextToolClick = () => {
-//     if (drawingBoardRef.current) {
-//       drawingBoardRef.current.toggleTextMode();
-//       alert("clicked")
-//     }
-//   };
+    // const handleTextToolClick = () => {
+    //     if (drawingBoardRef.current) {
+    //       drawingBoardRef.current.toggleTextMode();
+    //       alert("clicked")
+    //     }
+    //   };
 
 
-// if user just registered
+    // if user just registered
 
-const handleUndo = () => {
-    if (drawItem.length > 0) {
-        setDrawItem(prev => prev.slice(0, -1)); // Remove the last item
+    const handleUndo = () => {
+        if (drawItem.length > 0) {
+            setDrawItem(prev => prev.slice(0, -1)); // Remove the last item
+        }
     }
-}
 
-// Music
-const [isSpeaking, setIsSpeaking] = useState(false);
+    // Music
+    const [isSpeaking, setIsSpeaking] = useState(false);
     const musicRef = useRef(null);
 
     const playBackgroundMusic = () => {
@@ -265,43 +266,44 @@ const [isSpeaking, setIsSpeaking] = useState(false);
         }
     };
 
-const readTextAloud = (text) => {
-    // Check if the browser supports speech synthesis
-    if ('speechSynthesis' in window) {
-        // Reduce background music volume
-        if (musicRef.current) {
-            musicRef.current.volume = 0.1; // Reduce to 10% while speaking
-        }
-
-        text = ''
-
-        const utterance = new SpeechSynthesisUtterance(text);
-        setIsSpeaking(true);
-
-        // Add event listener for when speech ends
-        utterance.onend = () => {
-            setIsSpeaking(false);
-            // Restore music volume after speaking
+    const readTextAloud = (text) => {
+        // Check if the browser supports speech synthesis
+        if ('speechSynthesis' in window) {
+            // Reduce background music volume
             if (musicRef.current) {
-                musicRef.current.volume = 0.5; // Reset to normal volume
+                musicRef.current.volume = 0.1; // Reduce to 10% while speaking
             }
-        };
 
-        // Speak the text
-        window.speechSynthesis.speak(utterance);
-    } else {
-        console.error('Speech synthesis not supported in this browser.');
-    }
-};
+            text = ''
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            setIsSpeaking(true);
+
+            // Add event listener for when speech ends
+            utterance.onend = () => {
+                setIsSpeaking(false);
+                // Restore music volume after speaking
+                if (musicRef.current) {
+                    musicRef.current.volume = 0.5; // Reset to normal volume
+                }
+            };
+
+            // Speak the text
+            window.speechSynthesis.speak(utterance);
+        } else {
+            console.error('Speech synthesis not supported in this browser.');
+        }
+    };
 
     return (
         <div className='overflow-x-hidden overflow-y-hidden overflow-hidden'>
-            <HeaderComponents saveDrawing={saveDrawingFn} imageId={imageId} loading={loading} onUndo={handleUndoClick}/>
-            <SideBar selectTool={setSelectedTool}
-        selectedTool={selectedTool}
-        handleBrushSizeChange={handleBrushSizeChange}
-        handleColorChange={handleColorChange}/>
-            <TextCanva selectTool={setSelectedTool} onDraw={handleDraw} onSaveClick={handleSaveClick} ref={drawingBoardRef} selectedTool={selectedTool}/>
+            <HeaderComponents saveDrawing={saveDrawingFn} imageId={imageId} loading={loading} onUndo={handleUndoClick} />
+            {/* <SideBar selectTool={setSelectedTool}
+                selectedTool={selectedTool}
+                handleBrushSizeChange={handleBrushSizeChange}
+                handleColorChange={handleColorChange} /> */}
+            {/* <TextCanva selectTool={setSelectedTool} onDraw={handleDraw} onSaveClick={handleSaveClick} ref={drawingBoardRef} selectedTool={selectedTool} /> */}
+            <AutoDrawComponent/>
             {isTourActive && (
                 <TourTooltip
                     content={steps[tourStep].content}
@@ -310,15 +312,15 @@ const readTextAloud = (text) => {
                     onEnd={endTour}
                 />
             )}
-            {isTourToolActive && (
+            {/* {isTourToolActive && (
                 <TourTooltip
                     content={stepTool[tourStep].content}
                     targetElement={stepTool[tourStep].element}
                     onNext={nextToolStep}
                     onEnd={endToolTour}
                 />
-            )}
-            {greet &&<WelcomeText onClick={startToolTour} />}
+            )} */}
+            {/* {greet && <WelcomeText onClick={startToolTour} />} */}
         </div>
     )
 }
