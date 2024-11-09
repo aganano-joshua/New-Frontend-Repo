@@ -7,6 +7,7 @@ import Audio from './Components/Setting and Profile components/Audio'
 import Landing from './Pages/landing/Landing'
 import CookiesConsentModal from './Components/Cookies/Cookies'
 import SignIn from './Pages/SignIn/SignIn'
+import SignUp from './Components/Signup/SignUp'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/audio" element={<Audio />} />
         <Route path="/home-page" element={<HomePage />} />
         <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
       </Routes>
     </Router>
   );
