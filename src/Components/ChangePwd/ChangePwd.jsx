@@ -7,7 +7,9 @@ const ChangePwd = () => {
 
   return (
     <div className="body flex justify-center items-center min-h-screen">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md border-2 border-teal-500">
+      <div className=" relative bg-white p-8 rounded-lg shadow-lg w-full max-w-md border-2 border-teal-500">
+      <img src={assets.vec} alt="arrow-back"  className='absolute top-9 left-9 cursor-pointer'/>
+
         
         {/* Logo */}
         <div className="flex justify-center mb-6">

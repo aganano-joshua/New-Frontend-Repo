@@ -9,6 +9,9 @@ import CookiesConsentModal from './Components/Cookies/Cookies'
 import SignIn from './Pages/SignIn/SignIn'
 import SignUp from './Components/Signup/SignUp'
 import ChangePwd from './Pages/Reset/ChangePwd'
+import Account from './Pages/Account/Account'
+import Rank from './Pages/Rank/Rank'
+import EditAccount from './Components/EditAccount/EditAccount'
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/reset" element={<ChangePwd />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/rank" element={<Rank />} />
+        <Route path="/edit-acc" element={<EditAccount />} />
       </Routes>
     </Router>
   );

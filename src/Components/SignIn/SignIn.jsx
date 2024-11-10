@@ -4,7 +4,9 @@ import { assets } from '../../../Images/asset'
 const SignIn = () => {
   return (
     <div className="flex items-center justify-center h-96 w-96 bg-gray-100">
-      <div className="bg-white pl-8 pr-8 rounded-lg shadow-lg w-full max-w-sm border-2 border-teal-500">
+      <div className="relative bg-white pl-8 pr-8 rounded-lg shadow-lg w-full max-w-sm border-2 border-teal-500">
+      <img src={assets.vec} alt="arrow-back"  className='absolute top-9 left-9 cursor-pointer'/>
+
         
         {/* Logo */}
         <div className="flex justify-center mb-1">

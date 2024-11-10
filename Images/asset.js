@@ -45,11 +45,22 @@ import apple from './apple.png'
 import w from './w.png'
 import backgroundMusic from './bensound-spotlight.mp3'
 import touchUi from './zapsplat_vehicles_car_fan_dial_turn_click_single_2005_001_111852.mp3'
-
+import dolly from './dolly.png'
+import rec from './Rectangle.png'
+import rec1 from './Rectangle (1).png'
+import rec2 from './Rectangle (2).png'
+import mask from './Mask Group.png'
+import Vector from './Vector (1).png'
 
 
 
 export const assets = {
+    Vector,
+    mask,
+    rec,
+    rec1,
+    rec2,
+    dolly,
     apple,
     google,
     paint,
