@@ -51,10 +51,12 @@ import rec1 from './Rectangle (1).png'
 import rec2 from './Rectangle (2).png'
 import mask from './Mask Group.png'
 import Vector from './Vector (1).png'
+import users from './users.png'
 
 
 
 export const assets = {
+    users,
     Vector,
     mask,
     rec,
