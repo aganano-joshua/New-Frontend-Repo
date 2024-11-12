@@ -1,10 +1,12 @@
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
-import { Button } from "../../../../src/Components/ui/button"
-import { assets } from "../../../../Images/asset";
+// import { Button } from ""
+import { assets } from "../../../Images/asset";
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@/Components/ui/button";
+// import { assets } from "Images/asset";
 
 const items = [
     { id: 1, name: 'Item One', category: 'Category A' },
@@ -106,7 +108,7 @@ export const HeaderComponents = ({ saveDrawing, imageId, loading, onUndo }) => {
         setIsVisible(!isVisible);
     }
     return (
-        <div className='flex flex-row justify-between items-center w-full pt-[20px] pb-[10px] pl-[5px] pr-[10px] h-[5rem] absolute z-10 bg-white'>
+        <div className='flex flex-row justify-between items-center h-[10rem] w-full pt-[20px] pb-[10px] absolute pl-[5px] pr-[10px] h-[5rem] z-10 bg-white'>
             <MdOutlineArrowBackIosNew size={30} onClick={homePage} className="cursor-pointer"/>
             <div className="flex flex-row gap-4 justify-center items-center">
                 {/* <Button className='rounded-[20px] bg-[#096566]' id="sidebar-option2" onClick={onUndo}>Undo</Button> */}

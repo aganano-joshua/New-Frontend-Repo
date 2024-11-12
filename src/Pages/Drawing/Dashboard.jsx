@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import CanvaComponents from '../../Components/DrawingComponents/CanvaComponents'
 import SideBar from '../../Components/DrawingComponents/SideBar'
-import { HeaderComponents } from '../../../assets/images/icons/tools/HeaderComponents'
+import { HeaderComponents } from '../../Components/DrawingComponents/HeaderComponents'
 import { useNavigate } from 'react-router-dom'
 import Canvas from '../../Components/test/Canvas'
 import TextCanva from '../../Components/test/TextCanva'
@@ -9,7 +9,6 @@ import Greet from '@/Components/DrawingComponents/tutorial/Greet'
 import TourTooltip from '@/Components/DrawingComponents/tutorial/Greet'
 import WelcomeText from '@/Components/DrawingComponents/tutorial/WelcomeText'
 import { assets } from '../../../Images/asset'
-import AutoDrawComponent from '@/Components/test/AutoDrawComponent'
 
 const Dashboard = () => {
     const [audio] = useState(new Audio(assets.backgroundMusic))
@@ -298,12 +297,12 @@ const Dashboard = () => {
     return (
         <div className='overflow-x-hidden overflow-y-hidden overflow-hidden'>
             <HeaderComponents saveDrawing={saveDrawingFn} imageId={imageId} loading={loading} onUndo={handleUndoClick} />
-            {/* <SideBar selectTool={setSelectedTool}
+            <SideBar selectTool={setSelectedTool}
                 selectedTool={selectedTool}
                 handleBrushSizeChange={handleBrushSizeChange}
-                handleColorChange={handleColorChange} /> */}
-            {/* <TextCanva selectTool={setSelectedTool} onDraw={handleDraw} onSaveClick={handleSaveClick} ref={drawingBoardRef} selectedTool={selectedTool} /> */}
-            <AutoDrawComponent/>
+                handleColorChange={handleColorChange} />
+            <TextCanva selectTool={setSelectedTool} onDraw={handleDraw} onSaveClick={handleSaveClick} ref={drawingBoardRef} selectedTool={selectedTool} />
+            {/* <AutoDrawComponent/> */}
             {isTourActive && (
                 <TourTooltip
                     content={steps[tourStep].content}
@@ -312,15 +311,15 @@ const Dashboard = () => {
                     onEnd={endTour}
                 />
             )}
-            {/* {isTourToolActive && (
+            {isTourToolActive && (
                 <TourTooltip
                     content={stepTool[tourStep].content}
                     targetElement={stepTool[tourStep].element}
                     onNext={nextToolStep}
                     onEnd={endToolTour}
                 />
-            )} */}
-            {/* {greet && <WelcomeText onClick={startToolTour} />} */}
+            )}
+            {greet && <WelcomeText onClick={startToolTour} />}
         </div>
     )
 }
