@@ -2,8 +2,19 @@ import React from 'react'
 
 const Dashboard = () => {
   return (
-    <div className='w-full h-full'><iframe src="https://autodraw-atti.vercel.app/" id="myIframe" className='w-full h-full'></iframe>
-</div>
+    <div style={{ width: '100%', height: '100vh', overflow: 'hidden' }}>
+      <iframe
+        src="https://autodraw-atti.vercel.app/"
+        title="External Site"
+        style={{
+          width: '100%',
+          height: '100%',
+          border: 'none',
+          display: 'block',
+        }}
+        allowFullScreen
+      />
+    </div>
   )
 }
 
