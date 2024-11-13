@@ -14,6 +14,7 @@ import Rank from './Pages/Rank/Rank'
 import EditAccount from './Components/EditAccount/EditAccount'
 import InApp from './Components/InApp/InApp'
 import InChat from './Components/InChat/InChat'
+import DrawingHistory from './Components/DrawingHistory/DrawingHistory'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/in-app" element={<InApp />} />
         <Route path="/edit-acc" element={<EditAccount />} />
         <Route path="/in-chat" element={<InChat />} />
+        <Route path="/history" element={<DrawingHistory />} />
       </Routes>
     </Router>
   );
