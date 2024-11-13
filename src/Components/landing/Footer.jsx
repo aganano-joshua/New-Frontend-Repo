@@ -11,10 +11,8 @@ const Footer = () => {
         </div>
         <ul className='flex flex-row justify-between items-center gap-7'>
             <li><a href="#">Draw</a></li>
-            <li><a href="#">Sketch</a></li>
             <li><a href="#">Paint</a></li>
             <li><a href="#">Faq</a></li>
-            <li><a href="#">About Us</a></li>
             <li><a href="#">Learn</a></li>
             <li><a href="#">Support</a></li>
         </ul>
