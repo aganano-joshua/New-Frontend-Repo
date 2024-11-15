@@ -1,8 +1,7 @@
-import React from 'react'
 import { assets } from '../../../Images/asset'
 import { Link } from 'react-router-dom';
 
-const Header = ({}) => {
+const Header = () => {
     return (
       <div className='flex flex-row gap justify-between items-center px-14 max-800:px-0 max-800:h-30 overflow-hidden' >
         <div>

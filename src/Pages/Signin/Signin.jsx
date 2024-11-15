@@ -1,5 +1,5 @@
 import './signin.css'
-import Signing from '../../components/forms/signin'
+import Signing from '../../Components/forms/signin'
 const Signin = () => {
 
   return (
