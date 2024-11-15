@@ -1,5 +1,6 @@
-import SigninBg from '../Siginbg/Siginbg/SiginBg'
+import SigninBg from '@/Components/Siginbg/Siginbg/SiginBg'
 import InputF from '../InputField'
+
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import SignInOption from '../SignInOption'
@@ -82,17 +83,18 @@ const SignupForm = () => {
             setName(firstName + " " + lastName)
             const userData = { firstName, lastName, name, email, password }
             ApiService.registerWithEmail(userData)
-                .then(response => {
-                    const details = { email: email }
-                    localStorage.setItem("verifiedEmail", email)
-                    setLoading(false)
-                    navigate('/verification', { state: details })
-                })
-                .catch(err => {
-                    alert("An Error Occured Please Try again")
-                    window.location.href = "/signup"
-                    console.error('Error creating user:', err)
-                })
+              .then((response) => {
+                console.log('API Response:', response) // Example usage
+                const details = { email: email }
+                localStorage.setItem('verifiedEmail', email)
+                setLoading(false)
+                navigate('/verification', { state: details })
+              })
+              .catch((err) => {
+                alert('An Error Occured Please Try again')
+                window.location.href = '/signup'
+                console.error('Error creating user:', err)
+              })
         }
     }
     return (

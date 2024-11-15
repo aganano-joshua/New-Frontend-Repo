@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import './Global.css'
+// import './Global.css'
 import { Input } from "@/components/ui/input"
 
 

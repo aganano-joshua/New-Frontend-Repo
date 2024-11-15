@@ -1,13 +1,13 @@
-import SigninBg from '../Siginbg/Siginbg/SiginBg'
-import InputF from '../InputField'
+import SigninBg from '../../Components/Siginbg/Siginbg/SiginBg'
+import InputF from '../../Components/InputField'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import SignInOption from '../SignInOption'
-import UserNO from '../UserNO'
-import { assets } from '../../../Images/assets'
+import SignInOption from '../../Components/SignInOption'
+import UserNO from '../../Components/UserNO'
+import { assets } from '../../../Images/asset'
 import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
-import ApiService from '../../serverActions/api'
+// import ApiService from '../../serverActions/api'
 
 const SignupForm = () => {
     const navigate = useNavigate()
@@ -98,7 +98,7 @@ const SignupForm = () => {
     return (
         <div>
             <div className='body' style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", paddingRight: "30px" }}>
-                <SigninBg />
+                <SigninBg/>
                 <div style={{ zIndex: "20", height: "95%", width: "40rem", background: "white", marginLeft: "30px", border: "5px solid rgba(0, 158, 161, 1)" }}>
                     <div className="signupLogo">
                         <img src={assets.logo} alt="logo" width={150} height={90} />
