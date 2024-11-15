@@ -1,8 +1,7 @@
-import React from 'react'
 import { useLocation } from 'react-router-dom'
 import './Verification.css'
-import SigninBg from '../../components/Siginbg/Siginbg/SiginBg'
-import { assets } from  '../../../Images/assets'
+import SigninBg from '../../Components/Siginbg/Siginbg/SiginBg'
+import { assets } from '../../../Images/asset'
 
 const Verification = () => {
   const location = useLocation();

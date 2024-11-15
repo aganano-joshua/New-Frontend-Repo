@@ -7,6 +7,8 @@ import Landing from './Pages/landing/Landing'
 import CookiesConsentModal from './Components/Cookies/Cookies'
 import Signin from './Pages/Signin/Signin'
 import SignupForm from './Pages/SignUp/SignUp'
+import Verification from './Pages/Verification/Verification'
+// import ResetPassword from './Pages/reset-password/ResetPassword'
 function App() {
   return (
     <Router>
@@ -18,6 +20,8 @@ function App() {
         <Route path="/home-page" element={<HomePage />} />
         <Route path='/login' element={<Signin/>} />
         <Route path='/signup' element={<SignupForm/>}/>
+        <Route path='/verification' element= {<Verification/>}/>
+        {/* <Route path='/reset-password' element= {<ResetPassword/>}/> */}
       </Routes>
     </Router>
   );
