@@ -84,7 +84,6 @@ const SignupForm = () => {
             const userData = { firstName, lastName, name, email, password }
             ApiService.registerWithEmail(userData)
               .then((response) => {
-                console.log('API Response:', response) // Example usage
                 const details = { email: email }
                 localStorage.setItem('verifiedEmail', email)
                 setLoading(false)
