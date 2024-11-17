@@ -1,34 +1,32 @@
-import React from 'react'
-// import SignUp from '../../Components/SignUp/SignUp'
-import SigninBg from '../../Components/Siginbg/Siginbg/SiginBg'
-import InputF from '../../Components/InputField'
+import SigninBg from '@/Components/Siginbg/Siginbg/SiginBg'
+import InputF from '../InputField'
+
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import SignInOption from '../../Components/SignInOption'
-import UserNO from '../../Components/UserNO'
-import { assets } from '../../../Images/asset'
+import SignInOption from '../SignInOption'
+import UserNO from '../UserNO'
+import { assets } from '../../../Images/assets'
 import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
-import ApiService from '@/serverActions/api'
-// import ApiService from '../../serverActions/api'
+import ApiService from '../../serverActions/api'
 
-
-
-const SignUp = () => {
+const SignupForm = () => {
+    const navigate = useNavigate()
+    const [email, setEmail] = useState('')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
+    const [name, setName] = useState('')
     const [password, setPassword] = useState('')
-    const [email, setEmail] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [loading, setLoading] = useState(false)
-    const [errors, setErrors] = useState({})
-    const [name, setName] = useState('')
-    const navigate = useNavigate();
-//   return (
-//     <div>
-//         <SignUp />
-//     </div>
-//   )
+    const [errors, setErrors] = useState({
+        email: '',
+        password: '',
+        confirmPassword: '',
+        firstName: '',
+        lastName: ''
+    })
+
     const handleFirstNameChange = (e) => {
         setFirstName(e.target.value);
     };
@@ -85,23 +83,23 @@ const SignUp = () => {
             setName(firstName + " " + lastName)
             const userData = { firstName, lastName, name, email, password }
             ApiService.registerWithEmail(userData)
-                .then(response => {
-                    const details = { email: email }
-                    localStorage.setItem("verifiedEmail", email)
-                    setLoading(false)
-                    navigate('/verification', { state: details })
-                })
-                .catch(err => {
-                    alert("An Error Occured Please Try again")
-                    window.location.href = "/signup"
-                    console.error('Error creating user:', err)
-                })
+              .then((response) => {
+                const details = { email: email }
+                localStorage.setItem('verifiedEmail', email)
+                setLoading(false)
+                navigate('/verification', { state: details })
+              })
+              .catch((err) => {
+                alert('An Error Occured Please Try again')
+                window.location.href = '/signup'
+                console.error('Error creating user:', err)
+              })
         }
     }
     return (
         <div>
             <div className='body' style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", paddingRight: "30px" }}>
-                <SigninBg/>
+                <SigninBg />
                 <div style={{ zIndex: "20", height: "95%", width: "40rem", background: "white", marginLeft: "30px", border: "5px solid rgba(0, 158, 161, 1)" }}>
                     <div className="signupLogo">
                         <img src={assets.logo} alt="logo" width={150} height={90} />
@@ -112,17 +110,17 @@ const SignUp = () => {
                     </div>
                     <div>
                         <form onSubmit={handleSubmit} style={{ padding: "5px", display: "flex", alignItems: "center", marginTop: "20px" }}>
-                            <div className='input-sign flex justify-between flex-row gap-2 w-[70%]'>
+                            <div className='input-sign flex flex-row gap-2'>
                                 <InputF type="text" value={firstName} onChange={handleFirstNameChange} error={errors.firstName} label="First Name" placeHolder="Enter First Name" />
                                 <InputF type="text" value={lastName} onChange={handleLastNameChange} error={errors.lastName} label="Last Name" placeHolder="Enter Last Name" />
                             </div>
-                            <div className='input-sign w-[70%]'>
+                            <div className='input-sign'>
                                 <InputF type="email" value={email} onChange={handleEmailChange} error={errors.email} label="Email" placeHolder="Enter Email" />
                             </div>
-                            <div className='input-sign w-[70%]'>
+                            <div className='input-sign'>
                                 <InputF value={password} onChange={handlePasswordChange} error={errors.password} type="password" label="Password" placeHolder="********" />
                             </div>
-                            <div className='input-sign w-[70%]'>
+                            <div className='input-sign'>
                                 <InputF type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} error={errors.confirmPassword} label="Confirm Password" placeHolder="***********" />
                             </div>
                             <Button
@@ -161,4 +159,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default SignupForm

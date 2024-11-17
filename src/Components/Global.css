@@ -1,0 +1,69 @@
+.input-sign{
+    width: 60%;
+}
+.com-input{
+    width: 100%;
+    height: 2.5rem;
+    padding: 10px; 
+    border: 1.5px solid #A7A7A7; 
+    border-radius: 10px;
+}
+
+.option-or{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px
+}
+
+.long-or{
+    width: 8rem;
+    background: #8E8E93;
+    height: 0.05rem
+}
+
+@media screen and (max-width: 550px) {
+    .input-sign{
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .input-sign{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .input-sign{
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 397px) {
+    .input-sign{
+        width: 85%;
+    }
+    .input-label-sign{
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .com-input{
+        width: 100%;
+    }
+
+    .long-or{
+        width: 5rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .input-sign{
+        width: 95%;
+    }
+    .input-label-sign{
+        font-size: 0.5rem;
+    }
+}

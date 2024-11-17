@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Dashboard from './Pages/Drawing/Dashboard'
@@ -13,7 +12,9 @@ import Account from './Pages/Account/Account'
 import Rank from './Pages/Rank/Rank'
 import EditAccount from './Components/EditAccount/EditAccount'
 import InApp from './Components/InApp/InApp'
-
+import Signin from './Pages/Signin/Signin'
+import SignupForm from './Pages/SignUp/SignUp'
+import Verification from './Pages/Verification/Verification'
 function App() {
   return (
     <Router>
@@ -30,6 +31,10 @@ function App() {
         <Route path="/rank" element={<Rank />} />
         <Route path="/in-app" element={<InApp />} />
         <Route path="/edit-acc" element={<EditAccount />} />
+        <Route path='/login' element={<Signin/>} />
+        <Route path='/signup' element={<SignupForm/>}/>
+        <Route path='/verification' element= {<Verification/>}/>
+        {/* <Route path='/reset-password' element= {<ResetPassword/>}/> */}
       </Routes>
     </Router>
   );
