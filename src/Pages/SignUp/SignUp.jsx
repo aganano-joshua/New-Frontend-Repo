@@ -1,7 +1,7 @@
 import SigninBg from '../../Components/Siginbg/Siginbg/SiginBg'
 import InputF from '../../Components/InputField'
 import { useNavigate } from 'react-router-dom'
-import { Button } from '@/components/ui/button'
+import { Button } from '../../Components/ui/button'
 import SignInOption from '../../Components/SignInOption'
 import UserNO from '../../Components/UserNO'
 import { assets } from '../../../Images/asset'
