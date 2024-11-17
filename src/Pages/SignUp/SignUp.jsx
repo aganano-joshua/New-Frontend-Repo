@@ -109,17 +109,17 @@ const SignupForm = () => {
                     </div>
                     <div>
                         <form onSubmit={handleSubmit} style={{ padding: "5px", display: "flex", alignItems: "center", marginTop: "20px" }}>
-                            <div className='input-sign flex flex-row gap-2'>
+                            <div className='input-sign flex flex-row gap-2 w-[70%] justify-between'>
                                 <InputF type="text" value={firstName} onChange={handleFirstNameChange} error={errors.firstName} label="First Name" placeHolder="Enter First Name" />
                                 <InputF type="text" value={lastName} onChange={handleLastNameChange} error={errors.lastName} label="Last Name" placeHolder="Enter Last Name" />
                             </div>
-                            <div className='input-sign'>
+                            <div className='input-sign w-[70%]'>
                                 <InputF type="email" value={email} onChange={handleEmailChange} error={errors.email} label="Email" placeHolder="Enter Email" />
                             </div>
-                            <div className='input-sign'>
+                            <div className='input-sign w-[70%]'>
                                 <InputF value={password} onChange={handlePasswordChange} error={errors.password} type="password" label="Password" placeHolder="********" />
                             </div>
-                            <div className='input-sign'>
+                            <div className='input-sign w-[70%]'>
                                 <InputF type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} error={errors.confirmPassword} label="Confirm Password" placeHolder="***********" />
                             </div>
                             <Button
