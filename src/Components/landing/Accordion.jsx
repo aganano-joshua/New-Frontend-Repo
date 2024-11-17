@@ -43,11 +43,11 @@ export default function FAQAccordion() {
     },
     {
       question: "Who can use this website?",
-      answer: "Our website is designed for everyone! Whether you're a beginner looking to learn about riding, an experienced enthusiast seeking advanced information, or somewhere in between, you'll find valuable resources here. We welcome users of all ages and experience levels."
+      answer: "Our website is designed for everyone! Whether you're a beginner looking to learn about drawing, an experienced enthusiast seeking advanced information, or somewhere in between, you'll find valuable resources here. We welcome users of all ages and experience levels."
     },
     {
       question: "Are there any tutorials?",
-      answer: "We offer a wide range of tutorials catering to different skill levels. From basic 'How to Get Started' guides for beginners to advanced technique videos for experienced riders, you'll find comprehensive learning materials in our dedicated Tutorials section."
+      answer: "We offer a wide range of tutorials catering to different skill levels. From basic 'How to Get Started' guides for beginners to advanced technique videos for experienced Users, you'll find comprehensive learning materials in our dedicated Tutorials section."
     },
     {
       question: "Can I share my designs with friends?",
