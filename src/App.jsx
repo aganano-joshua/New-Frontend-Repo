@@ -13,7 +13,7 @@ import Rank from './Pages/Rank/Rank'
 import EditAccount from './Components/EditAccount/EditAccount'
 import InApp from './Components/InApp/InApp'
 import DrawingHistory from './Components/DrawingHistory/DrawingHistory'
-import SignUp from './Components/signup/Signup'
+import SignUp from './Components/Signup/signup'
 
 function App() {
   return (
