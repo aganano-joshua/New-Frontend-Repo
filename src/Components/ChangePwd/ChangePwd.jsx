@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { assets } from '../../../Images/asset'; // adjust the path if needed
+import { useNavigate } from 'react-router-dom';
 
 const ChangePwd = () => {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const navigate = useNavigate()
   return (
     <div className="body flex justify-center items-center min-h-screen">
       <div className=" relative bg-white p-8 rounded-lg shadow-lg w-full max-w-md border-2 border-teal-500">
-      <img src={assets.vec} alt="arrow-back"  className='absolute top-9 left-9 cursor-pointer'/>
+      <img src={assets.vec} alt="arrow-back"  className='absolute top-9 left-9 cursor-pointer' onClick={() => navigate('/account')}/>
 
         
         {/* Logo */}

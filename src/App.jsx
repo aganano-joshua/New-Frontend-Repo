@@ -12,6 +12,7 @@ import Account from './Pages/Account/Account'
 import Rank from './Pages/Rank/Rank'
 import EditAccount from './Components/EditAccount/EditAccount'
 import InApp from './Components/InApp/InApp'
+import DrawingHistory from './Components/DrawingHistory/DrawingHistory'
 
 function App() {
   return (
@@ -22,8 +23,9 @@ function App() {
         <Route path="/create-art" element={<Dashboard />} />
         <Route path="/audio" element={<Audio />} />
         <Route path="/home-page" element={<HomePage />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/drawing-history" element={<DrawingHistory />} />
+        <Route path="/login" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/reset" element={<ChangePwd />} />
         <Route path="/account" element={<Account />} />
         <Route path="/rank" element={<Rank />} />

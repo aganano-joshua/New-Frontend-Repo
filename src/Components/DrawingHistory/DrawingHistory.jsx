@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { assets } from '../../../Images/asset';
+import { useNavigate } from 'react-router-dom';
 const images = [
   { id: 1, src: assets.ellipse1, title: 'This Month' },
   { id: 2, src: assets.ellipse, title: 'Pumpkin' },
@@ -8,6 +9,7 @@ const images = [
 ];
 
 function HistoryComponent() {
+  const navigate = useNavigate()
   const [selectedImage, setSelectedImage] = useState(null);
 
   const openImagePopup = (image) => {
@@ -20,7 +22,7 @@ function HistoryComponent() {
 
   return (
     <div className="body flex flex-col items-center min-h-screen py-8 px-4 ">
-              <img src={assets.vec} alt="arrow-back"  className='absolute top-9 left-9 cursor-pointer'/>
+              <img src={assets.vec} alt="arrow-back"  className='absolute top-9 left-9 cursor-pointer' onClick={() => navigate(-1)}/>
 
       {/* Header */}
       <header className="flex flex-col items-center mb-8">

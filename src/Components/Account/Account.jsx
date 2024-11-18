@@ -1,7 +1,9 @@
 import React from 'react'
 import { assets } from '../../../Images/asset' // Adjust path as necessary
+import { useNavigate } from 'react-router-dom';
 
 const UserProfile = () => {
+  const navigate = useNavigate()
   return (
     <div className="body flex justify-center items-center min-h-screen">
       <div className=" relative bg-white p-8 rounded-lg shadow-lg w-full max-w-md border-2 border-teal-500">
@@ -35,15 +37,15 @@ const UserProfile = () => {
 
         {/* Account Options */}
         <div className="space-y-2">
-          <div className="flex items-center justify-between text-gray-700">
+          <div className="flex items-center justify-between text-gray-700" onClick={() => navigate('/rank')}>
             <span>My Rank</span>
             <span className="text-xl">&gt;</span>
           </div>
-          <div className="flex items-center justify-between text-gray-700">
+          <div className="flex items-center justify-between text-gray-700" onClick={() => navigate('/reset')}>
             <span>Change Password</span>
             <span className="text-xl">&gt;</span>
           </div>
-          <div className="flex items-center justify-between text-gray-700">
+          <div className="flex items-center justify-between text-gray-700" onClick={() => navigate('/login')}>
             <span>Logout</span>
             <span className="text-xl">&gt;</span>
           </div>

@@ -1,11 +1,13 @@
 import React from 'react';
 import { assets } from '../../../Images/asset'; // Adjust the path as needed
+import { useNavigate } from 'react-router-dom';
 
 const MyRank = () => {
+  const navigate = useNavigate()
   return (
     <div className="body flex justify-center min-h-screen py-12">
       <div className=" relative bg-white border-2 border-teal-500 rounded-lg shadow-lg px-8 w-full b  max-w-md md:max-w-lg">
-        <img src={assets.vec} alt="arrow-back"  className='absolute top-9 left-9 cursor-pointer'/>
+        <img src={assets.vec} alt="arrow-back"  className='absolute top-9 left-9 cursor-pointer' onClick={() => navigate('/account')} />
         {/* Logo */}
         <div className="flex justify-center mb-1">
           <img src={assets.logo} alt="Logo" className="h-16" />
