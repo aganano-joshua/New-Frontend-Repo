@@ -5,7 +5,7 @@ import ApiService from '@/serverActions/api';
 import { Loader2 } from 'lucide-react';
 import { Button } from '../ui/button';
 
-const SignUp = () => {
+const Signup = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [firstName, setFirstName] = useState('')
@@ -234,4 +234,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;
