@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { assets } from '../../../Images/asset'
 import ApiService from '@/serverActions/api';
+import { Button } from '../ui/button';
 
 const HomeHead = () => {
 
@@ -24,14 +25,17 @@ const HomeHead = () => {
   //   return () => clearInterval(intervalId);
   // }, []);
 
-  let userEmail = null; // Local variable to store the response
+  let userNaame = null; // Local variable to store the response
+  let userEmail = null;
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const response = await ApiService.getUserInfo();
         console.log(response.data);
-        userEmail = response.data.email; // Assign email directly to local variable
+        userNaame = response.data.email; // Assign email directly to local variable
+        userEmail = response.data.name; // Assign email directly to local variable
+        localStorage.setItem("email", userEmail);
         console.log(userEmail)
       } catch (err) {
         console.error('Error fetching user info', err);
@@ -47,6 +51,14 @@ const HomeHead = () => {
 
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
   }, []);
+
+  const userInfo = localStorage.getItem("email")
+
+
+  const redirectToExternalSite = (userEmail) => {
+    const externalURL = `https://autodraw-atti.vercel.app/`;
+    window.location.href = externalURL;
+};
   return (
     <div className="flex flex-row justify-between items-center p-5  max-800:items-start max-800:gap-6 select-none">
       <div>
@@ -61,10 +73,11 @@ const HomeHead = () => {
       <div className="flex flex-row justify-between items-center gap-2 max-800:mt-4">
         <img src={assets.doll} alt="doll logo" className="w-8 h-8" style={{ borderRadius: '50%' }} draggable={false}/>
         <div className="name" style={{ border: '1px solid #008183', padding: '10px 12px', borderRadius: '20px', fontWeight: 'bolder' }}>
-          hi, {userEmail}
+          hi, {userInfo}
         </div>
         <img src={assets.music} alt="music logo" className="w-10 h-10" draggable={false}/>
       </div>
+      <Button onClick={redirectToExternalSite}>Go</Button>
     </div>
   )
 }

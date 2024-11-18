@@ -5,6 +5,11 @@ const HeroSection = () => {
     const navigate = useNavigate()
 
     const createArt = () => {
+        // const iframe = document.getElementById("iframe-id");
+        // const email = "user@example.com";
+    
+        // // Send email to iframe
+        // iframe.contentWindow.postMessage({ email }, "https://autodraw-atti.vercel.app/");
         navigate("/create-art")
     }
   return (
