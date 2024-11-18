@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom'
-import './Verification.css'
+// import './Verification.css'
 import SigninBg from '../../Components/Siginbg/Siginbg/SiginBg'
 import { assets } from '../../../Images/asset'
 

@@ -1,3 +1,5 @@
+// import React from 'react'
+// import SignUp from '../../Components/SignUp/SignUp'
 import SigninBg from '../../Components/Siginbg/Siginbg/SiginBg'
 import InputF from '../../Components/InputField'
 import { useNavigate } from 'react-router-dom'
@@ -7,25 +9,26 @@ import UserNO from '../../Components/UserNO'
 import { assets } from '../../../Images/asset'
 import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
+import ApiService from '@/serverActions/api'
 // import ApiService from '../../serverActions/api'
 
-const SignupForm = () => {
-    const navigate = useNavigate()
-    const [email, setEmail] = useState('')
+
+
+const SignUp = () => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [name, setName] = useState('')
     const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [loading, setLoading] = useState(false)
-    const [errors, setErrors] = useState({
-        email: '',
-        password: '',
-        confirmPassword: '',
-        firstName: '',
-        lastName: ''
-    })
-
+    const [errors, setErrors] = useState({})
+    const [name, setName] = useState('')
+    const navigate = useNavigate();
+//   return (
+//     <div>
+//         <SignUp />
+//     </div>
+//   )
     const handleFirstNameChange = (e) => {
         setFirstName(e.target.value);
     };
@@ -87,6 +90,7 @@ const SignupForm = () => {
                     localStorage.setItem("verifiedEmail", email)
                     setLoading(false)
                     navigate('/verification', { state: details })
+                    console.log(response)
                 })
                 .catch(err => {
                     alert("An Error Occured Please Try again")
@@ -109,7 +113,7 @@ const SignupForm = () => {
                     </div>
                     <div>
                         <form onSubmit={handleSubmit} style={{ padding: "5px", display: "flex", alignItems: "center", marginTop: "20px" }}>
-                            <div className='input-sign flex flex-row gap-2 w-[70%] justify-between'>
+                            <div className='input-sign flex justify-between flex-row gap-2 w-[70%]'>
                                 <InputF type="text" value={firstName} onChange={handleFirstNameChange} error={errors.firstName} label="First Name" placeHolder="Enter First Name" />
                                 <InputF type="text" value={lastName} onChange={handleLastNameChange} error={errors.lastName} label="Last Name" placeHolder="Enter Last Name" />
                             </div>
@@ -158,4 +162,4 @@ const SignupForm = () => {
     )
 }
 
-export default SignupForm
+export default SignUp

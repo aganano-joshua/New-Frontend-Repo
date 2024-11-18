@@ -1,7 +1,7 @@
 // src/Background.js
 
 import React from 'react'
-import './signinBg.css' // Optional: for styling
+// import './signinBg.css' // Optional: for styling
 // import { assets } from '../../../../Images/assets'
 
 const SigninBg = () => {

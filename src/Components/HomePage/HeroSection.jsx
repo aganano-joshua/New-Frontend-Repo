@@ -5,6 +5,11 @@ const HeroSection = () => {
     const navigate = useNavigate()
 
     const createArt = () => {
+        // const iframe = document.getElementById("iframe-id");
+        // const email = "user@example.com";
+    
+        // // Send email to iframe
+        // iframe.contentWindow.postMessage({ email }, "https://autodraw-atti.vercel.app/");
         navigate("/create-art")
     }
   return (
@@ -16,7 +21,7 @@ const HeroSection = () => {
 
         <div className="hero-text flex flex-col justify-between items-center gap-5">
             <div className='cursor-pointer flex flex-row justify-between items-start gap-36'>
-                <h4 style={{fontSize: '30px', fontWeight: 'bolder', color: '#008183'}}>Creations</h4>
+                <h4 style={{fontSize: '30px', fontWeight: 'bolder', color: '#008183'}} onClick={() => navigate('/drawing-history')}>Creations</h4>
                 <img src={assets.pal} alt="Brush" style={{width: "50px", height: '50px'}} draggable={false}/>
             </div>
             <div className='cursor-pointer flex flex-row justify-between items-center gap-36'>

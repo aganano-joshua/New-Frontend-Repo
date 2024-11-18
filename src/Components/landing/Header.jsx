@@ -15,10 +15,10 @@ const Header = () => {
         </ul>
 
         <div className='flex flex-row justify-between items-center gap-4 pt-3'>
-          <Link to= "/login">
+          <Link to= "/signup">
             <button style={ {backgroundColor: "#008183", padding: "10px 15px", borderRadius: "10px", color: "white", fontWeight: "bold"} }>Sign Up</button>
            </Link>
-           <Link to="/signup">
+           <Link to="/login">
             <button style={ {border: "1px solid #008183", color: "#000", padding: "10px 15px", borderRadius: "10px", fontWeight: "bold"} }>Log In</button>
            </Link>
             <img src={assets.music} alt="music Logo" className='w-8 h-8'/>
