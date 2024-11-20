@@ -93,21 +93,26 @@ const SignIn = () => {
   const showPopUp = () => {
     setPopup(true)
   }
-
   const linkToLogin = '/home-page'
   return (
-    <div className="flex items-center justify-center h-96 w-96 bg-gray-100">
-      <div className="relative bg-white pl-8 pr-8 rounded-lg shadow-lg w-full max-w-sm border-2 border-teal-500">
-      <img src={assets.vec} alt="arrow-back"  className='absolute top-9 left-9 cursor-pointer' onClick={() => navigate('/')} />
+    <div className="flex items-center justify-center  bg-gray-100">
+      <div className="relative bg-white p-8 rounded-lg shadow-lg w-[400px] h-[600px] border-2 border-teal-500">
+        <img
+          src={assets.vec}
+          alt="arrow-back"
+          className="absolute top-9 left-9 cursor-pointer"
+          onClick={() => navigate('/')}
+        />
 
-        
         {/* Logo */}
         <div className="flex justify-center mb-1">
           <img src={assets.logo} alt="Logo" className="h-16" />
         </div>
-        
+
         {/* Welcome Message */}
-        <h2 className="text-2xl font-bold text-teal-600 text-center">Welcome to Cardboard!</h2>
+        <h2 className="text-2xl font-bold text-teal-600 text-center">
+          Welcome to Cardboard!
+        </h2>
         <p className="text-center text-gray-500 mb-1">Sign in to account</p>
 
         {/* Email and Password Fields */}
@@ -121,13 +126,16 @@ const SignIn = () => {
               id="email"
               placeholder="Enter your email here"
               value={email}
-                onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
             <p className="error-message">{emailError}</p>
           </div>
           <div className="mb-4">
-            <label className="block text-gray-600 text-sm mb-2" htmlFor="password">
+            <label
+              className="block text-gray-600 text-sm mb-2"
+              htmlFor="password"
+            >
               Password
             </label>
             <input
@@ -135,42 +143,44 @@ const SignIn = () => {
               id="password"
               placeholder="********"
               value={password}
-                onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
             <p className="error-message">{passwordError}</p>
             <div className="text-right mt-1">
-              <a href="#" className="text-teal-600 text-sm">Forgot password</a>
+              <a href="#" className="text-teal-600 text-sm">
+                Forgot password
+              </a>
             </div>
           </div>
 
           {/* Login Button */}
           <Button
-              type="submit"
-              disabled={loading}
-              variant="outline"
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginTop: '10px',
-                width: '100%',
-                height: '47px',
-                backgroundColor: '#008183',
-                color: '#fff',
-                fontWeight: '700',
-                fontSize: '20px',
-                border: 'none',
-                borderRadius: '20px',
-                cursor: loading ? 'not-allowed' : 'pointer',
-                opacity: loading ? 0.6 : 1,
-                transition: 'opacity 0.2s ease-in-out',
-              }}
-            >
-              {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Login
-            </Button>
+            type="submit"
+            disabled={loading}
+            variant="outline"
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop: '10px',
+              width: '100%',
+              height: '47px',
+              backgroundColor: '#008183',
+              color: '#fff',
+              fontWeight: '700',
+              fontSize: '20px',
+              border: 'none',
+              borderRadius: '20px',
+              cursor: loading ? 'not-allowed' : 'pointer',
+              opacity: loading ? 0.6 : 1,
+              transition: 'opacity 0.2s ease-in-out',
+            }}
+          >
+            {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            Login
+          </Button>
         </form>
 
         {/* Divider */}
@@ -192,11 +202,18 @@ const SignIn = () => {
 
         {/* Sign Up Link */}
         <p className="text-center text-sm text-gray-500">
-          New user? <a href="#" className="text-teal-600" onClick={() => navigate('/signup')}>Sign up</a>
+          New user?{' '}
+          <a
+            href="#"
+            className="text-teal-600"
+            onClick={() => navigate('/signup')}
+          >
+            Sign up
+          </a>
         </p>
       </div>
     </div>
-  );
+  )
 };
 
 export default SignIn;
