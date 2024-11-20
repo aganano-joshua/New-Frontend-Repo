@@ -86,14 +86,14 @@ const Signup = () => {
         })
         .catch((err) => {
           alert('An Error Occured Please Try again')
-          window.location.href = '/signup'
+          window.locatref = '/signup'
           console.error('Error creating user:', err)
         })
     }
   }
   return (
     <div className=" body flex items-center justify-center bg-gray-100">
-      <div className="relative bg-white px-8 rounded-lg shadow-lg w-96 max-w-sm border-2 border-teal-500 pb-[15px]">
+      <div className="relative bg-white p-8 rounded-lg shadow-lg w-[400px]  border-2 border-teal-500 pb-[15px]">
         <img src={assets.vec} alt="arrow-back" className='absolute top-9 left-9 cursor-pointer' onClick={() => navigate('/')} />
 
 
