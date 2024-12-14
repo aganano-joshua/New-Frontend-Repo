@@ -1,7 +1,7 @@
 import React from 'react'
 import InChat from '../../Components/InChat/InChat'
 
-const InChat = () => {
+const InChatApp = () => {
   return (
     <div>
         <InChat />
@@ -9,4 +9,4 @@ const InChat = () => {
   )
 }
 
-export default InChat
+export default InChatApp

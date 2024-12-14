@@ -49,8 +49,10 @@ import HeroSection from '../../Components/HomePage/HeroSection';
 import HeroIcon from '../../Components/HomePage/HeroIcon';
 import { assets } from '../../../Images/asset';
 import ApiService from '@/serverActions/api';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
+  const navigate = useNavigate()
 
   return (
     <div className="body">
@@ -64,6 +66,7 @@ const HomePage = () => {
         alt="share"
         style={{ position: 'absolute', top: '15%', right: '5%', width: '100px' }}
         className="max-800:absolute max-800:top-0 max-800:left-24"
+        onClick={() => navigate('/in-app')}
       />
     </div>
   );
