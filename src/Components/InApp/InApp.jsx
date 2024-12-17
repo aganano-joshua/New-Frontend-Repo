@@ -253,6 +253,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
 import { assets } from '../../../Images/asset';
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL
+
 const InApp = () => {
   const [data, setData] = useState([]); // Store fetched data
   const [error, setError] = useState(null); // Store error message
@@ -264,7 +266,7 @@ const InApp = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch('http://localhost:8080/api/v1/users'); // Replace with your API URL
+        const response = await fetch(`${API_BASE_URL}/api/v1/users`); // Replace with your API URL
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
