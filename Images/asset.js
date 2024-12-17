@@ -52,6 +52,7 @@ import rec2 from './Rectangle (2).png'
 import mask from './Mask Group.png'
 import Vector from './Vector (1).png'
 import users from './users.png'
+import sett from './settings.png'
 
 
 
@@ -89,7 +90,6 @@ export const assets = {
     faq,
     book,
     user,
-    brush,
     brushh,
     doll,
     share,
@@ -110,6 +110,7 @@ export const assets = {
     union,
     w,
     backgroundMusic,
-    touchUi
+    touchUi,
+    sett
 
 }

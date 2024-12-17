@@ -64,7 +64,7 @@ const HomePage = () => {
       <img
         src={assets.share}
         alt="share"
-        style={{ position: 'absolute', top: '15%', right: '5%', width: '100px' }}
+        style={{ position: 'absolute', top: '15%', right: '5%', width: '80px' }}
         className="max-800:absolute max-800:top-0 max-800:left-24"
         onClick={() => navigate('/in-app')}
       />
