@@ -1,9 +1,12 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { assets } from '../../../Images/asset' // Adjust path as necessary
 import { useNavigate } from 'react-router-dom';
 
 const UserProfile = () => {
   const navigate = useNavigate()
+  const userInfo = localStorage.getItem("email")
+  const userPics = localStorage.getItem("picture")
+  const email = localStorage.getItem("email");
   return (
     <div className="body flex justify-center items-center min-h-screen">
       <div className=" relative bg-white p-8 rounded-lg shadow-lg w-full max-w-md border-2 border-teal-500">
@@ -24,13 +27,13 @@ const UserProfile = () => {
         {/* Profile Picture and Info */}
         <div className="flex flex-col items-center mb-6">
           <img
-            src={assets.doll} // Replace with the actual profile picture URL
+            src={userPics} // Replace with the actual profile picture URL
             alt="User Avatar"
             className="w-24 h-24 rounded-full mb-2 border-2 border-teal-500"
           />
-          <h3 className="text-xl font-semibold">Claire</h3>
-          <p className="text-gray-500">claire@gmail.com</p>
-          <button className="mt-2 px-3 py-1 text-sm text-teal-600 border border-teal-600 rounded-lg">
+          <h3 className="text-xl font-semibold">{userInfo}</h3>
+          <p className="text-gray-500">{email}</p>
+          <button className="mt-2 px-3 py-1 text-sm text-teal-600 border border-teal-600 rounded-lg" onClick={() => navigate('/edit-acc')}>
             Edit
           </button>
         </div>
